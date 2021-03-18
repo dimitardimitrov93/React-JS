@@ -1,0 +1,14 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mollis commodo lacus non interdum. Aliquam rutrum id diam et iaculis. Aenean ac lectus et augue tincidunt imperdiet eu nec lacus. Nulla ut sem fringilla, sollicitudin nunc sed, blandit dui. Praesent ut lacus sit amet nunc tempus laoreet eu et tellus.",
+            "author": "Ricky"
+        },
+        {
+            "id": 2,
+            "content": "Morbi eu metus id enim tincidunt ullamcorper vel eget felis. Nulla lobortis quam vel velit ornare, venenatis ultricies dolor tempor. Cras at egestas libero. Fusce lectus eros, feugiat eu quam nec, bibendum maximus ante. Phasellus eget quam euismod, porttitor neque ut, luctus risus. Fusce condimentum turpis vel vulputate ultrices.",
+            "author": "James"
+        }
+    ]
+}

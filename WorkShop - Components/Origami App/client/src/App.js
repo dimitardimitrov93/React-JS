@@ -9,33 +9,50 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.state = {
-      posts: [],
+        this.state = {
+            posts: [],
+            selectedPost: null,
+        }
     }
-  }
 
-  componentDidMount() {
-    postService.getAll()
-      .then(posts => {
-        this.setState({ posts })
-      })
-  }
+    componentDidMount() {
+        postService.getAll()
+            .then(posts => {
+                this.setState({ posts })
+            })
+    }
 
-  render() {
-    return (
-      <div className={style.app}>
-        <Header />
-        <div className={style.container}>
-          <Aside />
-          <Main posts={this.state.posts} />
-          <Footer />
-        </div>
-      </div>
-    );
-  }
+    onListItemClick(id) {
+        this.setState({ selectedPost: id });
+    }
+
+    getPosts() {
+        if (!this.state.selectedPost) {
+            return this.state.posts;
+        } else {
+            return [this.state.posts.find(post => post.id == this.state.selectedPost)];
+        }
+    }
+
+    render() {
+        return (
+            <div className={style.app}>
+                <Header />
+                <div className={style.container}>
+                    <Aside
+                        onListItemClick={this.onListItemClick.bind(this)}
+                    />
+                    <Main
+                        posts={this.getPosts()}
+                    />
+                    <Footer />
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;

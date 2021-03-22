@@ -1,9 +1,22 @@
 import './AsideListItem.css';
 
-function AsideListItem(props) {
+function AsideListItem({
+    children,
+    onClick,
+    id,
+    isSelected
+}) {
+    let classes = ['asideListItem'];
+    
+    if (isSelected) {
+        classes.push('asideListItem-selected')
+    }
+
     return (
-        <li className="asideListItem">
-            <a href="#">{props.children}</a>
+        <li className={classes.join(' ')}>
+            <a href="#" onClick={() => onClick(id)}>
+                {children}
+            </a>
         </li>
     );
 }

@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom';
 function Header(props) {
     return (
         <nav className={style.navigation}>
-            <ul>
+            <ul className={style.navigationUl}>
                 <NavLink activeClassName="active-nav-link" to="/"  exact={true}>
                     <NavigationItem><img src="/coffee.png" alt="coffee" /></NavigationItem>
                 </NavLink>

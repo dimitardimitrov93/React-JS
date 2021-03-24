@@ -56,7 +56,7 @@ class App extends Component {
 
 
                             <Route path="/" exact>
-                                {/* <Main /> */}
+                                <Main />
                             </Route>
                             {/* 
                             <Route path="/about" component={About} />
@@ -67,7 +67,7 @@ class App extends Component {
                         </Switch>
                     </Suspense>
 
-                    {/* <Footer /> */}
+                    <Footer />
                 </div>
             </div>
         );

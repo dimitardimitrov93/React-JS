@@ -1,0 +1,29 @@
+.mainWrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    background-color: white;
+    padding: 0 2em 0 2em;
+    border: 2px solid #fff;
+    box-shadow: 0 0 20px 5px #ccc;
+    font-size: 1.5em;
+    /* border:1px solid blue; */
+}
+
+h1 {
+    text-align: center;
+    color: #234465;
+    margin-bottom: 2%;
+}
+
+.posts {
+    width: 100%;
+    /* border:1px solid red; */
+    height: 45vh;
+}

@@ -8,6 +8,7 @@ import { Route, Link, NavLink, Redirect, Switch } from 'react-router-dom';
 import Header from './components/Header';
 // import Aside from './components/Aside';
 import Main from './components/Main';
+import Blog from './components/Blog';
 import Footer from './components/Footer';
 
 // const About = lazy(() => import('./components/About'));
@@ -57,6 +58,9 @@ class App extends Component {
 
                             <Route path="/" exact>
                                 <Main />
+                            </Route>
+                            <Route path="/blog" exact>
+                                <Blog />
                             </Route>
                             {/* 
                             <Route path="/about" component={About} />

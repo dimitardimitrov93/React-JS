@@ -1,0 +1,27 @@
+.blogSection {
+    height: 28rem;
+    background-color: #cf26675e;
+    border-radius: 0.4em;
+    padding: 0 1em 0 1em;
+    margin: 0.4em 0 0.4em 0;
+}
+
+.blogSection h3 {
+    text-align: center;
+}
+
+.blogImage {
+    border-radius: 0.4em;
+    width: 45%;
+    height: auto;
+    float: left;
+}
+
+.blogParagraph {
+    text-align: justify;
+    font-size: 0.6em;
+    width: 50%;
+    height: auto;
+    margin: 0 0.5em 0 0.5em;
+    float: right;
+}

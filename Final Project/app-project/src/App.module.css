@@ -1,15 +1,20 @@
+html, * {
+  font-family: 'Kiwi Maru', serif;
+  box-sizing: border-box;
+}
+
 main {
   width: 55%;
   margin: auto;
 }
 
 
-.container {
+/* .container {
   background-image: url('bean-pattern.png');
   background-size: contain;
   background-position: center;
   background-repeat: repeat;
-}
+} */
 
 
 

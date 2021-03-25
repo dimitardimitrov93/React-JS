@@ -4,7 +4,7 @@
     align-items: flex-end;
     justify-content: flex-end;
     width: 100%;
-    height: 20rem;
+    height: 12rem;
     color: white;
 }
 
@@ -18,11 +18,13 @@
     padding: 0;
     margin: 0 auto 0 auto;
     background-color: white;
-    border-top: 2px solid #cf2667;
+    border: 2px solid #fff;
+    box-shadow: 0 0 20px 5px #ccc;
+    /* border-top: 2px solid #cf2667;
     border-right: 2px solid #cf2667;
     border-left: 2px solid #cf2667;
     border-top-right-radius: 1.5em;
-    border-top-left-radius: 1.5em;
+    border-top-left-radius: 1.5em; */
 }
 
 img {

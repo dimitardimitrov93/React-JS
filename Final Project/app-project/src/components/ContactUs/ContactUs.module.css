@@ -1,0 +1,71 @@
+.main {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 5em;
+}
+
+.contactUsHeading {
+    margin-bottom: 0;
+    text-shadow: 0 0 0.3em #cf2667;
+}
+
+.contactForm {
+    padding: 1em;
+}
+
+.formInputWrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 2em;
+}
+
+.formInputWrapper input, 
+.formInputWrapper textarea,
+.formButtonWrapper button {
+    width: 25em;
+    margin: 1em;
+    padding: 1em 0.5em 0.5em 1em;
+}
+
+.formInputWrapper input{
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #cf2667;
+}
+
+.formInputWrapper input:focus {
+    outline: none;
+    border-bottom: 2px solid #cf2667;
+}
+
+.formInputWrapper textarea {
+    border-radius: 0.4em;
+    border: 1px solid #cf2667;
+}
+
+.formInputWrapper textarea:focus {
+    outline: none;
+    border: 2px solid #cf2667;
+}
+
+.formButtonWrapper {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.formButtonWrapper button {
+    border: 1px solid #cf2667;
+    border-radius: 0.4em;
+    background-color: white;
+    padding: 0.5em 1em 0.5em 1em;
+}
+
+/* .formButtonWrapper button:active {
+    
+} */

@@ -18,10 +18,13 @@
 }
 
 .blogParagraph {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     text-align: justify;
     font-size: 0.6em;
-    width: 50%;
-    height: auto;
+    width: 32em;
+    height: 18.5em;
     margin: 0 0.5em 0 0.5em;
     float: right;
 }

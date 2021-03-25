@@ -11,8 +11,8 @@ import Main from './components/Main';
 import Blog from './components/Blog';
 import Footer from './components/Footer';
 
-// const About = lazy(() => import('./components/About'));
-// const ContactUs = lazy(() => import('./components/ContactUs'));
+const About = lazy(() => import('./components/About'));
+const ContactUs = lazy(() => import('./components/ContactUs'));
 
 class App extends Component {
     constructor(props) {
@@ -53,19 +53,20 @@ class App extends Component {
                     /> */}
 
                     <Suspense fallback={<div>Loading...</div>}>
+                        
                         <Switch>
-
 
                             <Route path="/" exact>
                                 <Main />
                             </Route>
+
                             <Route path="/blog" exact>
                                 <Blog />
                             </Route>
-                            {/* 
+                            
                             <Route path="/about" component={About} />
 
-                            <Route path="/contact-us" component={ContactUs} /> */}
+                            <Route path="/contact-us" component={ContactUs} />
 
                             <Route render={() => <h1>Page Not Found</h1>} />
                         </Switch>

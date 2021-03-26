@@ -10,6 +10,8 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Blog from './components/Blog';
 import Footer from './components/Footer';
+import Login from './components/Login';
+import Register from './components/Register';
 
 const About = lazy(() => import('./components/About'));
 const ContactUs = lazy(() => import('./components/ContactUs'));
@@ -67,6 +69,10 @@ class App extends Component {
                             <Route path="/about" component={About} />
 
                             <Route path="/contact-us" component={ContactUs} />
+
+                            <Route path="/login" component={Login} />
+
+                            <Route path="/register" component={Register} />
 
                             <Route render={() => <h1>Page Not Found</h1>} />
                         </Switch>

@@ -15,6 +15,9 @@ function Header(props) {
                 <NavLink activeClassName="active-nav-link" to="/recipes" exact={true}>
                     <NavigationItem>Recipes</NavigationItem>
                 </NavLink>
+                <NavLink activeClassName="active-nav-link" to="/login" exact={true}>
+                    <NavigationItem>Recipes</NavigationItem>
+                </NavLink>
                 <NavLink activeClassName="active-nav-link" to="/about"  exact={true}>
                     <NavigationItem>About</NavigationItem>
                 </NavLink>

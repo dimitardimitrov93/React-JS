@@ -8,13 +8,13 @@ import { Route, Link, NavLink, Redirect, Switch } from 'react-router-dom';
 import Header from './components/Header';
 // import Aside from './components/Aside';
 import Main from './components/Main';
-import Blog from './components/Blog';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Register from './components/Register';
 
 const About = lazy(() => import('./components/About'));
 const ContactUs = lazy(() => import('./components/ContactUs'));
+const Blog = lazy(() => import('./components/Blog'));
 
 class App extends Component {
     constructor(props) {
@@ -55,17 +55,17 @@ class App extends Component {
                     /> */}
 
                     <Suspense fallback={<div>Loading...</div>}>
-                        
+
                         <Switch>
 
                             <Route path="/" exact>
                                 <Main />
                             </Route>
 
-                            <Route path="/blog" exact>
-                                <Blog />
-                            </Route>
-                            
+                            <Route path="/blog" component={Blog} exact/>
+
+                            <Route path="/blog/:category" component={Blog} />
+
                             <Route path="/about" component={About} />
 
                             <Route path="/contact-us" component={ContactUs} />

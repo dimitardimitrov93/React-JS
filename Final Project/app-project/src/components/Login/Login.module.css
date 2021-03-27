@@ -24,7 +24,7 @@
     align-items: center;
     height: 28rem;
     width: 35%;
-    margin: auto;
+    margin: 2em auto 2em auto;
 }
 
 .login-form h1 {

@@ -1,10 +1,8 @@
 import { Component } from 'react';
 import style from './Blog.module.css';
-import BlogPost from './BlogPost'
-// import BlogPost from './BlogPost';
-import { Link, NavLink } from 'react-router-dom';
+import BlogPost from './BlogPost';
+import CategoriesNav from './CategoriesNav';
 import blogPostService from '../../services/blogPostService';
-
 
 class Blog extends Component {
     constructor(props) {
@@ -17,6 +15,8 @@ class Blog extends Component {
     }
 
     componentDidMount() {
+        console.log('didmount');
+        
         blogPostService.getAll(this.state.category)
             .then(blogPosts => {
                 this.setState({ blogPosts })
@@ -25,13 +25,20 @@ class Blog extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        const category = this.state.category;
+        console.log('didUpdate');
+        
+        // console.log(`${this.state.category} this.state.category`);
+        console.log(this.props.match.params.category + ' currentprops');
+        
+        console.log(`${prevProps.match.params.category} prevProps`);
 
-        if (prevProps.match.params.category == category) {
+        if (prevProps.match.params.category == this.props.match.params.category) {
+            console.log('return');
+            
             return;
         }
 
-        blogPostService.getAll(category)
+        blogPostService.getAll(this.props.match.params.category)
             .then(blogPosts => {
                 this.setState({ blogPosts: Object.keys(blogPosts).map(id => ({ id: id, ...blogPosts[id] })) });
             })
@@ -42,7 +49,7 @@ class Blog extends Component {
         return (
             <article className={style.blogArticle}>
                 <h2>Blog posts</h2>
-
+                <CategoriesNav />
                 {this.state.blogPosts.map(blogPost => {
                     return <BlogPost key={blogPost.id} blogPost={{ ...blogPost }} />
                 })}

@@ -1,0 +1,15 @@
+.categories {
+    width: 100%;
+    margin: auto;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.categoryListItem {
+    
+}
+
+.active {
+    background-color: burlywood;
+}

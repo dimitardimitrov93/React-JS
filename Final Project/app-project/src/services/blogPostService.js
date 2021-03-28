@@ -17,6 +17,16 @@ function getAll(category) {
         .catch(err => console.log(err));
 }
 
+function getOne(blogId, category) {
+    return fetch(`${databaseUrl}/blogPosts/${category}/${blogId}.json`)
+        .then(res => res.json())
+        .then(blogPost => {
+            return blogPost;
+        })
+        .catch(err => console.log(err));
+}
+
 export default {
     getAll,
+    getOne,
 };

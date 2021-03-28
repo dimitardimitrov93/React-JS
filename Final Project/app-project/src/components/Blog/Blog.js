@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 import style from './Blog.module.css';
 import BlogPost from './BlogPost';
 import CategoriesNav from './CategoriesNav';
@@ -48,7 +49,8 @@ class Blog extends Component {
     render() {
         return (
             <article className={style.blogArticle}>
-                <h2>Blog posts</h2>
+                <h2>Blog Posts</h2>
+                <Link className={style.createBlogPostLink} to='/create-blog-post'>Create a new post</Link>
                 <CategoriesNav />
                 {this.state.blogPosts.map(blogPost => {
                     return <BlogPost key={blogPost.id} blogPost={{ ...blogPost }} />

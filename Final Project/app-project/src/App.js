@@ -11,6 +11,7 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Register from './components/Register';
+import CreateBlogPost from './components/CreateBlogPost';
 
 const About = lazy(() => import('./components/About'));
 const ContactUs = lazy(() => import('./components/ContactUs'));
@@ -65,6 +66,8 @@ class App extends Component {
                             <Route path="/blog" component={Blog} exact/>
 
                             <Route path="/blog/:category" component={Blog} />
+
+                            <Route path="/create-blog-post" component={CreateBlogPost} exact/>
 
                             <Route path="/about" component={About} />
 

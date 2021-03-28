@@ -4,17 +4,31 @@ import { Link, NavLink } from 'react-router-dom';
 function Login({
     posts
 }) {
+
+    const onLoginSubmit = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+
+        const userData = {
+            email: formData.get('email'),
+            password: formData.get('password'),
+        }
+
+        console.log(userData);
+    }
+
     return (
         <div className={style.mainWrapper}>
             <main className={style.main}>
                 <section className={style['login-form']}>
                     <h1>Account Login</h1>
-                    <form>
+                    <form onSubmit={onLoginSubmit}>
                         <input type="text" name="email" placeholder="Email" required />
 
                         <input type="password" name="password" placeholder="Password" required />
 
-                        <input className={style['login-btn']} type="button" value="LOGIN" />
+                        <input className={style['login-btn']} type="submit" value="LOGIN" />
 
                         <span class="register">
                             Don't have an account?

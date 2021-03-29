@@ -1,22 +1,21 @@
 import style from './Register.module.css';
+import onRegisterSubmit from '../../AuthFormHandlers/onRegisterSubmit'
 import { Link, NavLink } from 'react-router-dom';
 
-function Register({
+function Register() {
+    // const onRegisterSubmit = (e) => {
+    //     e.preventDefault();
 
-}) {
-    const onRegisterSubmit = (e) => {
-        e.preventDefault();
+    //     const formData = new FormData(e.target);
 
-        const formData = new FormData(e.target);
+    //     const userData = {
+    //         email: formData.get('email'),
+    //         password: formData.get('password'),
+    //         repeatPassword: formData.get('repeatPassword'),
+    //     }
 
-        const userData = {
-            email: formData.get('email'),
-            password: formData.get('password'),
-            repeatPassword: formData.get('repeatPassword'),
-        }
-
-        console.log(userData);
-    }
+    //     console.log(userData);
+    // }
 
     return (
         <div className={style.mainWrapper}>

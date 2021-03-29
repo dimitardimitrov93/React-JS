@@ -1,22 +1,23 @@
 import style from './Login.module.css';
 import { Link, NavLink } from 'react-router-dom';
+import onLoginSubmit from '../../AuthFormHandlers/onLoginSubmit';
 
 function Login({
     posts
 }) {
 
-    const onLoginSubmit = (e) => {
-        e.preventDefault();
+    // const onLoginSubmit = (e) => {
+    //     e.preventDefault();
 
-        const formData = new FormData(e.target);
+    //     const formData = new FormData(e.target);
 
-        const userData = {
-            email: formData.get('email'),
-            password: formData.get('password'),
-        }
+    //     const userData = {
+    //         email: formData.get('email'),
+    //         password: formData.get('password'),
+    //     }
 
-        console.log(userData);
-    }
+    //     console.log(userData);
+    // }
 
     return (
         <div className={style.mainWrapper}>

@@ -1,22 +1,23 @@
 import { Component } from 'react';
 import style from './CreateBlogPost.module.css';
+import onCreateBlogPostSubmit from '../../BlogPostHandlers/onCreateBlogPostSubmit';
 
 const CreateBlogPost = () => {
 
-    const onCreateBlogPostSubmit = (e) => {
-        e.preventDefault();
+    // const onCreateBlogPostSubmit = (e) => {
+    //     e.preventDefault();
 
-        const formData = new FormData(e.target);
+    //     const formData = new FormData(e.target);
 
-        const blogPostData = {
-            title: formData.get('title'),
-            category: formData.get('category'),
-            imageUrl: formData.get('imageUrl'),
-            content: formData.get('content'),
-        }
+    //     const blogPostData = {
+    //         title: formData.get('title'),
+    //         category: formData.get('category'),
+    //         imageUrl: formData.get('imageUrl'),
+    //         content: formData.get('content'),
+    //     }
 
-        console.log(blogPostData);
-    }
+    //     console.log(blogPostData);
+    // }
 
     return (
         <div className={style.createBlogPostWrapper}>

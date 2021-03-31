@@ -10,14 +10,24 @@
     text-align: center;
 }
 
-.blogImage {
+.blogImage,
+.blogImageOdd {
     border-radius: 0.4em;
     width: 45%;
-    height: auto;
+    height: 60%;
+    object-fit: cover;
+}
+
+.blogImage {
     float: left;
 }
 
-.blogParagraph {
+.blogImageOdd {
+    float: right;
+}
+
+.blogParagraph,
+.blogParagraphOdd {
     overflow: hidden;
     /*
     white-space: nowrap;
@@ -27,11 +37,26 @@
     width: 32em;
     height: 18.5em;
     margin: 0 0.5em 0 0.5em;
+}
+
+.blogParagraph {
     float: right;
+}
+
+.blogParagraphOdd {
+    float: left;
+}
+
+.blogPostLink,
+.blogPostLinkOdd {
+    margin: auto;
+    font-size: 0.8em;
 }
 
 .blogPostLink {
     float: right;
-    margin: auto;
-    font-size: 0.8em;
+}
+
+.blogPostLinkOdd {
+    float: left;
 }

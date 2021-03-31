@@ -27,8 +27,8 @@ function getAll(category) {
         .catch(err => console.log(err));
 }
 
-function getOne(blogId, category) {
-    return fetch(`${databaseUrl}/blogPosts/${category}/${blogId}.json`)
+function getOne(blogId) {
+    return fetch(`${databaseUrl}/blogPosts/${blogId}.json`)
         .then(res => res.json())
         .then(blogPost => {
             return blogPost;

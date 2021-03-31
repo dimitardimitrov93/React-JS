@@ -1,0 +1,24 @@
+.blogPostDetails {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    background-color: #cf26675e;
+}
+
+.blogPostDetails img {
+    width: 80%;
+    height: 35em;
+    padding: 0.5em 0em 1.2em 0em;
+    object-fit: cover;
+    border-radius: 3em;
+}
+
+.blogPostDetails p {
+    width: 80%;
+    text-align: justify;
+}
+
+.blogPostDetails button {
+    width: 30%;
+}

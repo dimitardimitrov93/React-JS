@@ -30,3 +30,45 @@
 img {
     height: 1.6em;
 }
+
+header {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.welcomeMessage,
+.userActionLink:first-of-type {
+    padding-right: 1.1em;
+    border-right: 1px solid white;
+}
+
+.guest, .loggedUser {
+    width: 21%;
+    margin: 1em;
+    padding: 0.3em 0 0.3em 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    align-self: flex-end;
+    background-color: #D41872;
+    border-radius: 0.8em;
+}
+
+.userActionLink,
+.guest,
+.loggedUser {
+    font-size: 1em;
+    color: white;
+}
+
+.userActionLink:hover {
+    text-decoration: underline;
+}
+
+.guest {
+    display: none;
+}
+
+.loggedUser {
+    display: flex;
+}

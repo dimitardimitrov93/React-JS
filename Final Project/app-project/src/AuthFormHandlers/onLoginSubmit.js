@@ -19,9 +19,10 @@ async function onLoginSubmit(e) {
     //     return;
     // }
 
-    authService.login(email, password)
+    return authService.login(email, password)
         .then(data => {
-            console.log(data);
+            return data;
+            // console.log(data);
             // return <Redirect to='/' />
             // clearLoadingNotification();
             // clearInputFields();

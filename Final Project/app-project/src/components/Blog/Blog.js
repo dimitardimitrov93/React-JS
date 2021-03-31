@@ -16,8 +16,6 @@ class Blog extends Component {
     }
 
     componentDidMount() {
-        console.log('didmount');
-        
         blogPostService.getAll(this.state.category)
             .then(blogPosts => {
                 this.setState({ blogPosts })
@@ -26,16 +24,8 @@ class Blog extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        console.log('didUpdate');
-        
         // console.log(`${this.state.category} this.state.category`);
-        console.log(this.props.match.params.category + ' currentprops');
-        
-        console.log(`${prevProps.match.params.category} prevProps`);
-
         if (prevProps.match.params.category == this.props.match.params.category) {
-            console.log('return');
-            
             return;
         }
 
@@ -52,8 +42,8 @@ class Blog extends Component {
                 <h2>Blog Posts</h2>
                 <Link className={style.createBlogPostLink} to='/create-blog-post'>Create a new post</Link>
                 <CategoriesNav />
-                {this.state.blogPosts.map(blogPost => {
-                    return <BlogPost key={blogPost.id} blogPost={{ ...blogPost }} />
+                {this.state.blogPosts.map((blogPost, index) => {
+                    return <BlogPost postIndex={index} key={blogPost.id} blogPost={{ ...blogPost }} />
                 })}
 
             </article>

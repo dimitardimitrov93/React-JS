@@ -11,16 +11,19 @@ class CategoriesNav extends Component {
         return (
             <ul className={style.categories}>
                 <li className={style.categoryListItem}>
-                    <NavLink to={'/blog/1'} exact={true}>Category 1</NavLink>
+                    <NavLink activeClassName={style.active} to={'/blog'} exact={true}>All</NavLink>
                 </li>
                 <li className={style.categoryListItem}>
-                    <NavLink to={'/blog/2'} exact={true}>Category 2</NavLink>
+                    <NavLink activeClassName={style.active} to={'/blog/mocha'} exact={true}>Mocha</NavLink>
                 </li>
                 <li className={style.categoryListItem}>
-                    <NavLink to={'/blog/3'} exact={true}>Category 3</NavLink>
+                    <NavLink activeClassName={style.active} to={'/blog/espresso'} exact={true}>Espresso</NavLink>
                 </li>
                 <li className={style.categoryListItem}>
-                    <NavLink to={'/blog/4'} exact={true}>Category 4</NavLink>
+                    <NavLink activeClassName={style.active} to={'/blog/latte'} exact={true}>Latte</NavLink>
+                </li>
+                <li className={style.categoryListItem}>
+                    <NavLink activeClassName={style.active} to={'/blog/cappuccino'} exact={true}>Cappuccino</NavLink>
                 </li>
             </ul>
         );

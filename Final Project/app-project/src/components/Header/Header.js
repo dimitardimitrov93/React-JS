@@ -19,9 +19,6 @@ function Header(props) {
 
     const handleLogout = () => {
         authService.logOut();
-
-        console.log(props.appContext);
-        
         props.appContext.setState({ userData: authService.getData() });
     }
 

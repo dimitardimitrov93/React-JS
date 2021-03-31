@@ -97,23 +97,22 @@ class App extends Component {
                         <Switch>
 
                             <Route path="/" exact>
-
                                 <Main />
                             </Route>
 
                             <Route
                                 exact
-                                path="/logout"
-                                render={() => {
-                                    return <Redirect to="/" />
-                                }}
+                                path="/create-blog-post"
+                                render={() =>
+                                    (this.state.userData.isAuthenticated
+                                        ? <CreateBlogPost />
+                                        : <Redirect to="/login" />)
+                                }
                             />
 
                             <Route path="/blog" props={this} component={Blog} exact />
 
                             <Route path="/blog/:category" component={Blog} exact />
-
-                            <Route path="/create-blog-post" component={CreateBlogPost} exact />
 
                             <Route path="/blog/:blogPostCategory/:blogPostId" component={BlogPostDetails} exact />
 

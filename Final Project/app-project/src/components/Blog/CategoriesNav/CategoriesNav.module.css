@@ -6,10 +6,13 @@
     justify-content: space-between;
 }
 
-.categoryListItem {
-    
-}
+/* .active::before {
+
+} */
 
 .active {
+    padding: 0 0.4em 0 0.4em;
     background-color: burlywood;
+    background-size: contain;
+    border-radius: 1em;
 }

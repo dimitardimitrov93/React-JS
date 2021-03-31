@@ -36,8 +36,9 @@
 }
 
 .createBlogPostForm form input:nth-child(1),
-.createBlogPostForm form input:nth-child(2),
-.createBlogPostForm form input:nth-child(3) {
+.createBlogPostForm form select,
+.createBlogPostForm form input:nth-child(3),
+.createBlogPostForm form input:nth-child(4) {
     margin: 1.5em;
     width: 100%;
     padding: 1em 0.5em 0.7em 4em;

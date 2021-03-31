@@ -11,7 +11,7 @@ const CreateBlogPost = () => {
 
     //     const blogPostData = {
     //         title: formData.get('title'),
-    //         category: formData.get('category'),
+    //          formData.get('category'),
     //         imageUrl: formData.get('imageUrl'),
     //         content: formData.get('content'),
     //     }
@@ -27,7 +27,13 @@ const CreateBlogPost = () => {
 
                 <form onSubmit={onCreateBlogPostSubmit}>
                     <input type="title" name="title" placeholder="Title" required />
-                    <input type="text" name="category" placeholder="Category" required />
+                    <label htmlFor="category">Category</label>
+                    <select name="category" >
+                        <option value="mocha">Mocha</option>
+                        <option value="espresso">Espresso</option>
+                        <option value="latte">Latte</option>
+                        <option value="Cappuccino">Cappuccino</option>
+                    </select>
                     <input type="text" name="imageUrl" placeholder="Image Url" required />
                     <textarea className={style.contentArea} name="content" id="" cols="30" rows="10"></textarea>
                     <input type="submit" className={style['submit-btn']} value="Post" />

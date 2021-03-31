@@ -1,9 +1,10 @@
 .blogSection {
     height: 28rem;
-    background-color: #cf26675e;
-    border-radius: 0.4em;
     padding: 0 1em 0 1em;
     margin: 0.4em 0 0.4em 0;
+    background-color: #cf26675e;
+    border-radius: 0.4em;
+    font-size: 1.4em;
 }
 
 .blogSection h3 {
@@ -35,7 +36,7 @@
     text-align: justify;
     font-size: 0.6em;
     width: 32em;
-    height: 18.5em;
+    height: 16.5em;
     margin: 0 0.5em 0 0.5em;
 }
 
@@ -50,6 +51,7 @@
 .blogPostLink,
 .blogPostLinkOdd {
     margin: auto;
+    padding: 0.5em 0 0 0.4em;
     font-size: 0.8em;
 }
 

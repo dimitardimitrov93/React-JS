@@ -17,31 +17,41 @@ function Header(props) {
         console.log(props.userData);
     }
 
+    const handleLogout = () => {
+        authService.logOut();
+
+        console.log(props.appContext);
+        
+        props.appContext.setState({ userData: authService.getData() });
+    }
+
     return (
         <header>
             <div className={style[userActionsDivStyle]}>
                 <span className={style.welcomeMessage}>Welcome, {userEmail}.</span>
                 <Link className={style.userActionLink} to={`/profile/${userEmail}`} exact={true}>Profile</Link>
-                <Link className={style.userActionLink} to="/logout" onClick={authService.logOut} exact={true} >Logout</Link>
+                <span className={style.userActionLink} onClick={handleLogout.bind(this)} exact={true} >Logout</span>
             </div>
 
             <nav className={style.navigation}>
                 <ul className={style.navigationUl}>
+
                     <NavLink activeClassName="active-nav-link" to="/" exact={true}>
                         <NavigationItem><img src="/coffee.png" alt="coffee" /></NavigationItem>
                     </NavLink>
+
                     <NavLink activeClassName="active-nav-link" to="/blog" exact={true}>
                         <NavigationItem>Blog</NavigationItem>
                     </NavLink>
-                    <NavLink activeClassName="active-nav-link" to="/recipes" exact={true}>
-                        <NavigationItem>Recipes</NavigationItem>
-                    </NavLink>
+
                     <NavLink activeClassName="active-nav-link" to="/login" exact={true}>
                         <NavigationItem>Login</NavigationItem>
                     </NavLink>
+
                     <NavLink activeClassName="active-nav-link" to="/about" exact={true}>
                         <NavigationItem>About</NavigationItem>
                     </NavLink>
+
                     <NavLink activeClassName="active-nav-link" to="/contact-us" exact={true}>
                         <NavigationItem>Contact us</NavigationItem>
                     </NavLink>

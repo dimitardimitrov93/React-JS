@@ -4,7 +4,7 @@
     align-items: flex-end;
     justify-content: flex-end;
     width: 100%;
-    height: 12rem;
+    height: 8rem;
     color: white;
 }
 
@@ -34,6 +34,8 @@ img {
 header {
     display: flex;
     flex-flow: column wrap;
+    justify-content: flex-end;
+    height: 15em;
 }
 
 .welcomeMessage,
@@ -63,6 +65,7 @@ header {
 
 .userActionLink:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .guest {

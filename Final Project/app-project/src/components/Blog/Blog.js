@@ -4,6 +4,7 @@ import style from './Blog.module.css';
 import BlogPost from './BlogPost';
 import CategoriesNav from './CategoriesNav';
 import blogPostService from '../../services/blogPostService';
+import authService from '../../services/authService';
 
 class Blog extends Component {
     constructor(props) {
@@ -12,19 +13,25 @@ class Blog extends Component {
         this.state = {
             blogPosts: [],
             category: this.props.match.params.category,
+            isAuthenticated: authService.getData().isAuthenticated,
         }
     }
 
     componentDidMount() {
         blogPostService.getAll(this.state.category)
             .then(blogPosts => {
-                this.setState({ blogPosts })
+                this.setState({ blogPosts });
             })
             .catch(err => console.log(err));
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps, prevState) {
         // console.log(`${this.state.category} this.state.category`);
+        // const currentAuthStatus = authService.getData().isAuthenticated;
+        if (prevState.isAuthenticated !== authService.getData().isAuthenticated) {
+            this.setState({ isAuthenticated: authService.getData().isAuthenticated });
+        }     
+
         if (prevProps.match.params.category == this.props.match.params.category) {
             return;
         }
@@ -40,7 +47,7 @@ class Blog extends Component {
         return (
             <article className={style.blogArticle}>
                 <h2>Blog Posts</h2>
-                <Link className={style.createBlogPostLink} to='/create-blog-post'>Create a new post</Link>
+                {this.state.isAuthenticated && <Link className={style.createBlogPostLink} to='/create-blog-post'>Create a new post</Link>}
                 <CategoriesNav />
                 {this.state.blogPosts.map((blogPost, index) => {
                     return <BlogPost postIndex={index} key={blogPost.id} blogPost={{ ...blogPost }} />

@@ -2,6 +2,7 @@ import style from './App.module.css';
 
 import { Component, Suspense, lazy } from 'react';
 import { Route, Link, NavLink, Redirect, Switch } from 'react-router-dom';
+import authService from './services/authService';
 
 // import postService from './services/postService';
 
@@ -12,6 +13,7 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import Register from './components/Register';
 import CreateBlogPost from './components/CreateBlogPost';
+import BlogPostDetails from './components/BlogPostDetails';
 
 const About = lazy(() => import('./components/About'));
 const ContactUs = lazy(() => import('./components/ContactUs'));
@@ -24,15 +26,50 @@ class App extends Component {
         this.state = {
             posts: [],
             selectedPost: null,
+            userData: authService.getData(),
         }
     }
 
-    // componentDidMount() {
-    //     postService.getAll()
-    //         .then(posts => {
-    //             this.setState({ posts })
-    //         })
-    // }
+    componentDidMount() {
+        const fromAuthService = authService.getData();
+        console.log(Boolean(this.state.userData));
+
+        if (this.state.userData) {
+            if (this.state.userData.email !== fromAuthService.email) {
+                this.setState({ userData: fromAuthService });
+                console.log(`${this.state.userData} didmount`);
+
+            }
+            return;
+        } else {
+            console.log(fromAuthService);
+            console.log(this);
+
+            this.setState({ userData: { ...fromAuthService } });
+            console.log(`${this.state.userData} didmount else`);
+
+
+            return;
+        }
+    }
+
+    componentDidUpdate() {
+        const fromAuthService = authService.getData();
+
+        if (this.state.userData) {
+            if (this.state.userData.email !== fromAuthService.email) {
+                this.setState({ userData: fromAuthService });
+                console.log(`${this.state.userData} didupdate else`);
+
+            }
+            return;
+        } else {
+            this.setState({ userData: fromAuthService });
+            console.log(`${this.state.userData} didupdate else`);
+
+            return;
+        }
+    }
 
     // onListItemClick(id) {
     //     this.setState({ selectedPost: id });
@@ -50,30 +87,43 @@ class App extends Component {
         return (
             <div className={style.app}>
                 <div className={style.container}>
-                    <Header />
                     {/* <Aside
                         onListItemClick={this.onListItemClick.bind(this)}
                     /> */}
+                    <Header appContext={this} userData={this.state.userData} />
 
                     <Suspense fallback={<div>Loading...</div>}>
 
                         <Switch>
 
                             <Route path="/" exact>
+
                                 <Main />
                             </Route>
 
-                            <Route path="/blog" component={Blog} exact/>
+                            <Route
+                                exact
+                                path="/logout"
+                                render={() => {
+                                    return <Redirect to="/" />
+                                }}
+                            />
 
-                            <Route path="/blog/:category" component={Blog} />
+                            <Route path="/blog" props={this} component={Blog} exact />
 
-                            <Route path="/create-blog-post" component={CreateBlogPost} exact/>
+                            <Route path="/blog/:category" component={Blog} exact />
+
+                            <Route path="/create-blog-post" component={CreateBlogPost} exact />
+
+                            <Route path="/blog/:blogPostCategory/:blogPostId" component={BlogPostDetails} exact />
 
                             <Route path="/about" component={About} />
 
                             <Route path="/contact-us" component={ContactUs} />
 
-                            <Route path="/login" component={Login} />
+                            <Route path="/login" >
+                                <Login appContext={this} />
+                            </Route>
 
                             <Route path="/register" component={Register} />
 

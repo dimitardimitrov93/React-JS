@@ -28,7 +28,7 @@ function onRegisterSubmit(e) {
         return;
     }
 
-    authService.register(email, password)
+    return authService.register(email, password)
         .then(data => {
             console.log(`Registered successfully.`);
 

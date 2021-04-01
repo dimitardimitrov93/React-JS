@@ -27,6 +27,22 @@ function getAll(category) {
         .catch(err => console.log(err));
 }
 
+function getUserPosts(userEmail) {
+    return fetch(`${databaseUrl}/blogPosts.json`)
+        .then(res => res.json())
+        .then(blogPosts => {
+            if (userEmail) {
+                return Object.keys(blogPosts)
+                .map(id => ({ id: id, ...blogPosts[id] }))
+                .filter(post => post.creator == userEmail);
+            } else {
+                return Object.keys(blogPosts)
+                    .map(id => ({ id: id, ...blogPosts[id] }))
+            }
+        })
+        .catch(err => console.log(err));
+}
+
 function getOne(blogId) {
     return fetch(`${databaseUrl}/blogPosts/${blogId}.json`)
         .then(res => res.json())
@@ -60,4 +76,5 @@ export default {
     getAll,
     getOne,
     addBlogPost,
+    getUserPosts,
 };

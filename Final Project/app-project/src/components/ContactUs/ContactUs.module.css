@@ -44,7 +44,9 @@
 }
 
 .formInputWrapper textarea {
-    border-radius: 0.4em;
+    max-width: 25em;
+    max-height: 35em;
+    border-radius: 0.6em;
     border: 1px solid #cf2667;
 }
 
@@ -60,9 +62,10 @@
 }
 
 .formButtonWrapper button {
-    border: 1px solid #cf2667;
-    border-radius: 0.4em;
-    background-color: white;
+    border: none;
+    border-radius: 0.7em;
+    background-color: #cf2667;
+    color: white;
     padding: 0.5em 1em 0.5em 1em;
 }
 

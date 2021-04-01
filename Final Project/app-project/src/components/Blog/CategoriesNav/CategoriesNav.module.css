@@ -11,8 +11,8 @@
 } */
 
 .active {
-    padding: 0 0.4em 0 0.4em;
-    background-color: burlywood;
+    padding: 0 0.6em 0 0.6em;
+    background-color: rgb(224, 207, 212);
     background-size: contain;
     border-radius: 1em;
 }

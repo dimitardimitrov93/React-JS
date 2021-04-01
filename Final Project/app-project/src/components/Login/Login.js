@@ -19,6 +19,8 @@ class Login extends Component {
     handleSubmit(e) {
         onLoginSubmit(e)
             .then(res => {
+                console.log(res);
+                
                 if (res.idToken) {
                     this.setState({ isAuthenticated: true })
                     console.log(this.props.appContext);
@@ -26,6 +28,7 @@ class Login extends Component {
                     this.props.appContext.setState({ userData: authService.getData() });
                 }
             })
+            .catch(error => console.log(error));
     }
 
     // const onLoginSubmit = (e) => {
@@ -57,9 +60,9 @@ class Login extends Component {
 
                             <input className={style['login-btn']} type="submit" value="LOGIN" />
 
-                            <span class="register">
+                            <span className="register">
                                 Don't have an account?
-                            <NavLink activeClassName="active-nav-link" className={style.registerLink} to="/register" exact={true}>
+                            <NavLink activeClassName="active-nav-link" className={style.registerLink} to="/register">
                                     Register
                             </NavLink>
                             </span>

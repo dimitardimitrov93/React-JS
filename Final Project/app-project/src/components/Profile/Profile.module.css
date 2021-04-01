@@ -1,0 +1,21 @@
+.blogArticle {
+    display: flex;
+    flex-flow: column wrap;
+    margin: auto;
+    width: 60%;
+    background-color: white;
+    padding: 0 2em 0 2em;
+    border: 2px solid #fff;
+    box-shadow: 0 0 20px 5px #ccc;
+    font-size: 1.2em;
+    /* border:1px solid blue; */
+}
+
+.blogArticle h2 {
+    text-align: center;
+}
+
+.createBlogPostLink {
+    align-self: center;
+    margin-bottom: 0.4em;
+}

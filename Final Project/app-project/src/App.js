@@ -14,6 +14,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import CreateBlogPost from './components/CreateBlogPost';
 import BlogPostDetails from './components/BlogPostDetails';
+import Profile from './components/Profile';
 
 const About = lazy(() => import('./components/About'));
 const ContactUs = lazy(() => import('./components/ContactUs'));
@@ -114,7 +115,7 @@ class App extends Component {
 
                             <Route path="/blog/:category" component={Blog} exact />
 
-                            <Route path="/blog/:blogPostCategory/:blogPostId" component={BlogPostDetails} exact />
+                            <Route path="/blog/:blogPostCategory/:blogPostTitle/:blogPostId" component={BlogPostDetails} exact />
 
                             <Route path="/about" component={About} />
 
@@ -125,6 +126,16 @@ class App extends Component {
                             </Route>
 
                             <Route path="/register" component={Register} />
+
+                            <Route
+                                exact
+                                path="/profile/:userEmail"
+                                render={() =>
+                                    (this.state.userData.isAuthenticated
+                                        ? <Profile />
+                                        : <Redirect to="/login" />)
+                                }
+                            />
 
                             <Route render={() => <h1>Page Not Found</h1>} />
                         </Switch>

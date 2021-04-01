@@ -5,15 +5,10 @@ import authService from '../../services/authService';
 
 function Header(props) {
     let userEmail = '';
-    let userActionsDivStyle = 'guest';
 
     if (props.userData.isAuthenticated) {
-        console.log('loggedUser');
-
         userEmail = props.userData.email;
-        userActionsDivStyle = 'loggedUser';
     } else {
-        console.log('guest');
         console.log(props.userData);
     }
 
@@ -24,11 +19,18 @@ function Header(props) {
 
     return (
         <header>
-            <div className={style[userActionsDivStyle]}>
-                <span className={style.welcomeMessage}>Welcome, {userEmail}.</span>
-                <Link className={style.userActionLink} to={`/profile/${userEmail}`} exact={true}>Profile</Link>
-                <span className={style.userActionLink} onClick={handleLogout.bind(this)} exact={true} >Logout</span>
-            </div>
+            {props.userData.isAuthenticated
+                ?(<div className={style.userActionsDivStyle}>
+                    <span className={style.welcomeMessage}>Welcome, {userEmail}.</span>
+                    <Link className={style.userActionLink} to={`/profile/${userEmail}`} exact={true}>Profile</Link>
+                    <span className={style.userActionLink} onClick={handleLogout.bind(this)} exact={true} >Logout</span>
+                </div>)
+                :(<div className={style.userActionsDivStyle}>
+                    <Link className={style.guestActionLink} to='/login' exact={true}>Login</Link>
+                    <Link className={style.guestActionLink} to='/register' exact={true}>Register</Link>
+                </div>)
+            }
+
 
             <nav className={style.navigation}>
                 <ul className={style.navigationUl}>

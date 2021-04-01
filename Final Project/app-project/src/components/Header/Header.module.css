@@ -44,7 +44,16 @@ header {
     border-right: 1px solid white;
 }
 
-.guest, .loggedUser {
+/* .userActionLink:nth-of-type(2) {
+    padding-left: 1.1em;
+} */
+
+/* .userActionLink {
+    display: inline-block;
+    width: 30%;
+} */
+
+.userActionsDivStyle {
     width: 21%;
     margin: 1em;
     padding: 0.3em 0 0.3em 0;
@@ -57,19 +66,30 @@ header {
 }
 
 .userActionLink,
-.guest,
-.loggedUser {
+.userActionsDivStyle,
+.guestActionLink {
     font-size: 1em;
     color: white;
 }
 
-.userActionLink:hover {
+.userActionLink:hover,
+.guestActionLink:hover {
     text-decoration: underline;
     cursor: pointer;
 }
 
 .guest {
     display: none;
+}
+
+.guestActionLink {
+    display: inline-block;
+    width: 49%;
+    text-align: center;
+}
+
+.guestActionLink:first-of-type {
+    border-right: 1px solid white;
 }
 
 .loggedUser {

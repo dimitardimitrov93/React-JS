@@ -1,0 +1,102 @@
+.editBlogPostWrapper {
+    width: 100%;
+    height: 90vh;
+    padding: 2em;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.editBlogPostForm {
+    width: 80%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 28rem;
+    width: 35%;
+    margin: auto;
+}
+
+.editBlogPostForm h1 {
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+    font-weight: normal;
+}
+
+.editBlogPostForm form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    background-color: #FFFFFF;
+    border-radius: 0.8em;
+}
+
+.editBlogPostForm form input:nth-child(1),
+.editBlogPostForm form select,
+.editBlogPostForm form input:nth-child(3),
+.editBlogPostForm form input:nth-child(4) {
+    margin: 1.5em;
+    width: 100%;
+    padding: 1em 0.5em 0.7em 4em;
+    border: none;
+    border-bottom: 1px solid #EFEFEF;
+    outline: none;
+    font-family: inherit;
+}
+
+.submit-btn {
+   align-self: center;
+   margin-top: 2.5em;
+   margin-bottom: 1em;
+   padding: 0.8em 3em;
+   font-family: inherit;
+   border: none;
+   border-radius: 1.3em;
+   color: #FFFFFF;
+   background-color: #D41872;
+   width: 90%;
+}
+
+.submit-btn:hover {
+    cursor: pointer;
+}
+
+.submit-btn:active {
+    background-color: rgb(138, 17, 76);
+}
+
+.submit-btn:focus {
+    outline: none;
+}
+
+.submit-form form {
+    height: 72%;
+}
+
+.editBlogPostForm .contentArea textarea {
+    width: 1em;
+    height: 20em;
+    max-height: 40em;
+    border-radius: 0.6em;
+    border: 1px solid #cf2667;
+}
+
+.editBlogPostForm .contentArea textarea:focus {
+    outline: none;
+    border: 2px solid #cf2667;
+}
+
+.loginLink {
+    margin-left: 0.2em;
+    font-size: 1em;
+    transition: transform .2s;
+}
+
+.loginLink:hover {
+    transform: scale(1.1);
+    text-decoration: underline;
+}

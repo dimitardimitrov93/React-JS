@@ -1,9 +1,9 @@
 import blogPostService from '../services/blogPostService';
 
-function onCreateBlogPostSubmit(e) {
+function onEditBlogPostSubmit(e) {
     e.preventDefault();
-    // displayLoadingNotification();
-
+    
+    const blogPostId = e.target.children[5].dataset.id;
     const formData = new FormData(e.target);
 
     const blogPostData = {
@@ -37,11 +37,10 @@ function onCreateBlogPostSubmit(e) {
     //     return;
     // }
 
-    blogPostService.addBlogPost(blogPostData)
+    return blogPostService.editBlogPost(blogPostId, blogPostData)
         .then(res => {
             // console.log('Destination created successfully.');
             console.log(res);
-            
             // clearLoadingNotification();
             // navigate('/home')
             // displaySuccessNotification('Destination created successfully.');
@@ -54,4 +53,4 @@ function onCreateBlogPostSubmit(e) {
         });
 }
 
-export default onCreateBlogPostSubmit;
+export default onEditBlogPostSubmit;

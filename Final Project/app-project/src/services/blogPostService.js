@@ -62,8 +62,10 @@ async function deleteBlogPost(destinationId) {
     return res;
 }
 
-async function editBlogPost(destinationId, destinationData) {
-    const res = await request(`${databaseUrl}/destinations/${destinationId}.json?auth=${authService.getData().idToken}`, 'PATCH', JSON.stringify(destinationData));
+async function editBlogPost(blogPostId, blogPostData) {
+    console.log(blogPostId);
+    
+    const res = await request(`${databaseUrl}/blogPosts/${blogPostId}.json?auth=${authService.getData().idToken}`, 'PATCH', JSON.stringify(blogPostData));
 
     if (!res.error) {
         return Promise.resolve(res);
@@ -77,4 +79,5 @@ export default {
     getOne,
     addBlogPost,
     getUserPosts,
+    editBlogPost,
 };

@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 import style from './BlogPostDetails.module.css';
 import blogPostService from '../../services/blogPostService';
 import authService from '../../services/authService';
@@ -18,7 +19,7 @@ class BlogPostDetails extends Component {
 
         blogPostService.getOne(blogPostId)
             .then(blogPost => {
-                this.setState({ blogPost });
+                this.setState({ blogPost: {...blogPost, blogPostId} });
             })
             .catch(err => {
                 console.log(err);
@@ -28,7 +29,7 @@ class BlogPostDetails extends Component {
     componentDidUpdate(prevProps, prevState) {
         if (prevState.userData.isAuthenticated !== authService.getData().isAuthenticated) {
             this.setState({ userData: authService.getData() });
-        }  
+        }
         return;
     }
 
@@ -36,7 +37,8 @@ class BlogPostDetails extends Component {
         let blogPost = { ...this.state.blogPost }
         let isAuthenticated = this.state.userData.isAuthenticated;
         let isCreator = this.state.userData.email == blogPost.creator;
-
+        console.log(blogPost);
+        
         return (
 
             <main className={style.main}>
@@ -44,14 +46,14 @@ class BlogPostDetails extends Component {
                     <h2>{blogPost.title}</h2>
                     <img src={blogPost.imageUrl} />
                     <p>{blogPost.content}</p>
-
+                    
                     {
                         isAuthenticated
                         && isCreator
                         && (
                             <div>
-                                <button>Delete</button>
-                                <button>Edit</button>
+                                {/* <Link to={`/blog/${blogPost.category}/${blogPost.blogPostId}/delete`} blogPostId>Delete</ Link> */}
+                                <Link to={`/blog/${blogPost.category}/${blogPost.blogPostId}/edit`}>Edit</ Link>
                             </div>
                         )}
 

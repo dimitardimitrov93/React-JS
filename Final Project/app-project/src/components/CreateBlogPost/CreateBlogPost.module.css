@@ -1,20 +1,21 @@
 .createBlogPostWrapper {
-    width: 100%;
-    height: 90vh;
+    width: 60%;
+    height: 100%;
     padding: 2em;
+    margin: auto;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+    background-color: white;
 }
 
 .createBlogPostForm {
-    width: 80%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    height: 28rem;
-    width: 35%;
+    height: 100%;
+    width: 80%;
     margin: auto;
 }
 
@@ -27,25 +28,40 @@
 .createBlogPostForm form {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+    justify-content: baseline;
+    align-items: baseline;
     width: 100%;
-    position: relative;
     background-color: #FFFFFF;
     border-radius: 0.8em;
+    padding: 1.5em;
 }
 
-.createBlogPostForm form input:nth-child(1),
-.createBlogPostForm form select,
-.createBlogPostForm form input:nth-child(3),
-.createBlogPostForm form input:nth-child(4) {
-    margin: 1.5em;
+.inputWrapper {
     width: 100%;
-    padding: 1em 0.5em 0.7em 4em;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.createBlogPostForm form input,
+.createBlogPostForm form select {
+    margin-bottom: 2em;
+    width: 85%;
+    padding: 1em 0.3em 0.7em 0em;
     border: none;
-    border-bottom: 1px solid #EFEFEF;
+    border-bottom: 1px solid #D41872;
     outline: none;
     font-family: inherit;
+    font-size: 1em;
+}
+
+.createBlogPostForm form label {
+    margin-bottom: 2em;
+    padding: 1em 0.3em 0.7em 0em;
+
+    align-self: flex-start;
+    color: #D41872;
 }
 
 .submit-btn {
@@ -77,15 +93,22 @@
     height: 72%;
 }
 
-.createBlogPostForm .contentArea textarea {
-    width: 1em;
-    height: 20em;
+.createBlogPostForm form label.contentLabel {
+    margin-bottom: 0.5em;
+    align-self: center;
+}
+
+.createBlogPostForm .contentArea {
+    width: 100%;
+    height: 25em;
     max-height: 40em;
     border-radius: 0.6em;
+    font-size: 1em;
+
     border: 1px solid #cf2667;
 }
 
-.createBlogPostForm .contentArea textarea:focus {
+.createBlogPostForm .contentArea:focus {
     outline: none;
     border: 2px solid #cf2667;
 }

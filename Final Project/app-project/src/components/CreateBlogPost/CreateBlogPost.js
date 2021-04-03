@@ -26,15 +26,27 @@ const CreateBlogPost = () => {
             <section className={style.createBlogPostForm}>
 
                 <form onSubmit={onCreateBlogPostSubmit}>
-                    <input type="title" name="title" placeholder="Title" required />
-                    <label htmlFor="category">Category</label>
-                    <select name="category" >
-                        <option value="mocha">Mocha</option>
-                        <option value="espresso">Espresso</option>
-                        <option value="latte">Latte</option>
-                        <option value="Cappuccino">Cappuccino</option>
-                    </select>
-                    <input type="text" name="imageUrl" placeholder="Image Url" required />
+                    <div className={style.inputWrapper}>
+                        <label htmlFor="title">Title</label>
+                        <input type="title" name="title" required />
+                    </div>
+                    <div className={style.inputWrapper}>
+
+                        <label htmlFor="category">Category</label>
+                        <select name="category" >
+                            <option value="mocha">Mocha</option>
+                            <option value="espresso">Espresso</option>
+                            <option value="latte">Latte</option>
+                            <option value="Cappuccino">Cappuccino</option>
+                        </select>
+                    </div>
+                    <div className={style.inputWrapper}>
+
+                        <label htmlFor="imageUrl">Image Url</label>
+                        <input type="text" name="imageUrl" required />
+                    </div>
+
+                    <label className={style.contentLabel} htmlFor="content">Content</label>
                     <textarea className={style.contentArea} name="content" id="" cols="30" rows="10"></textarea>
                     <input type="submit" className={style['submit-btn']} value="Post" />
                     {/* <span class="successful-reg-msg">You were registered successfully. Now you can <NavLink className={style.loginLink} to='/login'>log in.</NavLink></span>

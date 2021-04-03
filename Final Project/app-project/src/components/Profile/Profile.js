@@ -24,7 +24,7 @@ class Profile extends Component {
         blogPostService.getAll()
             .then(blogPosts => {
                 this.setState(({ userPosts: blogPosts.filter(blogPost => blogPost.creator == this.state.userData.email) }));
-                this.setState(({ likedPosts: blogPosts.filter(blogPost => blogPost.likes.includes(this.state.userData.email)) }));
+                this.setState(({ likedPosts: blogPosts.filter(blogPost => blogPost.peopleLiked.includes(this.state.userData.email)) }));
                 this.setState(({ comments: blogPosts.filter(blogPost => blogPost.comments.includes(this.state.userData.email)) }));
             })
             .catch(err => console.log(err));
@@ -38,6 +38,7 @@ class Profile extends Component {
     componentDidUpdate(prevProps, prevState) {
         // console.log(`${this.state.category} this.state.category`);
         // const currentAuthStatus = authService.getData().isAuthenticated;
+
         if (prevState.userData.isAuthenticated !== authService.getData().isAuthenticated) {
             this.setState({ userData: authService.getData() });
         }

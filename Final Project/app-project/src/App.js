@@ -15,6 +15,7 @@ import Register from './components/Register';
 import CreateBlogPost from './components/CreateBlogPost';
 import BlogPostDetails from './components/BlogPostDetails';
 import Profile from './components/Profile';
+import BlogPostEdit from './components/BlogPostEdit';
 
 const About = lazy(() => import('./components/About'));
 const ContactUs = lazy(() => import('./components/ContactUs'));
@@ -115,7 +116,19 @@ class App extends Component {
 
                             <Route path="/blog/:category" component={Blog} exact />
 
-                            <Route path="/blog/:blogPostCategory/:blogPostTitle/:blogPostId" component={BlogPostDetails} exact />
+                            <Route
+                                exact
+                                path="/blog/:blogPostCategory/:blogPostId"
+                                render={(props) =>
+                                    (this.state.userData.isAuthenticated
+                                        ? <BlogPostDetails props={props}/>
+                                        : <Redirect to="/login" />)
+                                }
+                            />
+
+                            <Route path="/blog/:blogPostCategory/:blogPostId" component={BlogPostDetails} exact />
+
+                            <Route path="/blog/:blogPostCategory/:blogPostId/edit" component={BlogPostEdit} exact />
 
                             <Route path="/about" component={About} />
 

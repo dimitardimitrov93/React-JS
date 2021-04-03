@@ -21,7 +21,7 @@ function Header(props) {
         <header>
             {props.userData.isAuthenticated
                 ?(<div className={style.userActionsDivStyle}>
-                    <span className={style.welcomeMessage}>Welcome, {userEmail}.</span>
+                    <span className={style.welcomeMessage}>Welcome, {userEmail}</span>
                     <Link className={style.userActionLink} to={`/profile/${userEmail}`}>Profile</Link>
                     <span className={style.userActionLink} onClick={handleLogout.bind(this)} >Logout</span>
                 </div>)

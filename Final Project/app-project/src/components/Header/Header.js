@@ -22,12 +22,12 @@ function Header(props) {
             {props.userData.isAuthenticated
                 ?(<div className={style.userActionsDivStyle}>
                     <span className={style.welcomeMessage}>Welcome, {userEmail}.</span>
-                    <Link className={style.userActionLink} to={`/profile/${userEmail}`} exact={true}>Profile</Link>
-                    <span className={style.userActionLink} onClick={handleLogout.bind(this)} exact={true} >Logout</span>
+                    <Link className={style.userActionLink} to={`/profile/${userEmail}`}>Profile</Link>
+                    <span className={style.userActionLink} onClick={handleLogout.bind(this)} >Logout</span>
                 </div>)
                 :(<div className={style.userActionsDivStyle}>
-                    <Link className={style.guestActionLink} to='/login' exact={true}>Login</Link>
-                    <Link className={style.guestActionLink} to='/register' exact={true}>Register</Link>
+                    <Link className={style.guestActionLink} to='/login'>Login</Link>
+                    <Link className={style.guestActionLink} to='/register'>Register</Link>
                 </div>)
             }
 
@@ -35,23 +35,23 @@ function Header(props) {
             <nav className={style.navigation}>
                 <ul className={style.navigationUl}>
 
-                    <NavLink activeClassName="active-nav-link" to="/" exact={true}>
+                    <NavLink activeClassName="active-nav-link" to="/">
                         <NavigationItem><img src="/coffee.png" alt="coffee" /></NavigationItem>
                     </NavLink>
 
-                    <NavLink activeClassName="active-nav-link" to="/blog" exact={true}>
+                    <NavLink activeClassName="active-nav-link" to="/blog">
                         <NavigationItem>Blog</NavigationItem>
                     </NavLink>
-
-                    <NavLink activeClassName="active-nav-link" to="/login" exact={true}>
+{/* 
+                    <NavLink activeClassName="active-nav-link" to="/login">
                         <NavigationItem>Login</NavigationItem>
-                    </NavLink>
+                    </NavLink> */}
 
-                    <NavLink activeClassName="active-nav-link" to="/about" exact={true}>
+                    <NavLink activeClassName="active-nav-link" to="/about">
                         <NavigationItem>About</NavigationItem>
                     </NavLink>
 
-                    <NavLink activeClassName="active-nav-link" to="/contact-us" exact={true}>
+                    <NavLink activeClassName="active-nav-link" to="/contact-us">
                         <NavigationItem>Contact us</NavigationItem>
                     </NavLink>
                 </ul>

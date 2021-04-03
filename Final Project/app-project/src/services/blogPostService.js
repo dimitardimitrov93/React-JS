@@ -7,7 +7,7 @@ const request = async (url, method, body) => {
 
     const res = await fetch(url, options);
     const data = await res.json();
-    
+
     return data;
 }
 
@@ -33,8 +33,8 @@ function getUserPosts(userEmail) {
         .then(blogPosts => {
             if (userEmail) {
                 return Object.keys(blogPosts)
-                .map(id => ({ id: id, ...blogPosts[id] }))
-                .filter(post => post.creator == userEmail);
+                    .map(id => ({ id: id, ...blogPosts[id] }))
+                    .filter(post => post.creator == userEmail);
             } else {
                 return Object.keys(blogPosts)
                     .map(id => ({ id: id, ...blogPosts[id] }))
@@ -63,9 +63,17 @@ async function deleteBlogPost(destinationId) {
 }
 
 async function editBlogPost(blogPostId, blogPostData) {
-    console.log(blogPostId);
-    
     const res = await request(`${databaseUrl}/blogPosts/${blogPostId}.json?auth=${authService.getData().idToken}`, 'PATCH', JSON.stringify(blogPostData));
+
+    if (!res.error) {
+        return Promise.resolve(res);
+    } else {
+        return Promise.reject(res.error);
+    }
+}
+
+async function likePost(blogPostId, peopleLiked) {
+    const res = await request(`${databaseUrl}/blogPosts/${blogPostId}.json?auth=${authService.getData().idToken}`, 'PATCH', JSON.stringify(peopleLiked));
 
     if (!res.error) {
         return Promise.resolve(res);
@@ -80,4 +88,5 @@ export default {
     addBlogPost,
     getUserPosts,
     editBlogPost,
+    likePost,
 };

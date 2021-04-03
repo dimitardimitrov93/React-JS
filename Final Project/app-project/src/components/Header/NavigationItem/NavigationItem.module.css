@@ -2,6 +2,9 @@
     display: inline-block;
     transition: transform .2s;
     border-radius: 1.5em;
+    font-size: 1.3em;
+    text-decoration: none;
+    color: #cf2667;
 }
 
 a {

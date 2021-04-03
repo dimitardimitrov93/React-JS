@@ -50,7 +50,7 @@ class Profile extends Component {
         blogPostService.getAll()
             .then(blogPosts => {
                 this.setState(({ userPosts: blogPosts.filter(blogPost => blogPost.creator == this.state.userData.email) }));
-                this.setState(({ likedPosts: blogPosts.filter(blogPost => blogPost.likes.includes(this.state.userData.email)) }));
+                this.setState(({ likedPosts: blogPosts.filter(blogPost => blogPost.peopleLiked.includes(this.state.userData.email)) }));
                 this.setState(({ comments: blogPosts.filter(blogPost => blogPost.comments.includes(this.state.userData.email)) }));
 
                 // this.state.likedPosts = blogPosts.filter(blogPost => blogPost.likes.includes(this.state.userData.email));

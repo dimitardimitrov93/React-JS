@@ -3,7 +3,7 @@ import style from './NavigationItem.module.css';
 const NavigationItem = (props) => {
     return (
         <li className={style.listItem}>
-            <a href="#">{props.children}</a>
+            {props.children}
         </li>
     );
 }

@@ -12,15 +12,27 @@ class Profile extends Component {
         this.state = {
             userPosts: [],
             userData: authService.getData(),
+            userPosts: [],
+            likedPosts: [],
+            comments: [],
         }
     }
 
     componentDidMount() {
-        blogPostService.getUserPosts(this.state.userData.email)
-            .then(userPosts => {
-                this.setState({ userPosts });
+
+
+        blogPostService.getAll()
+            .then(blogPosts => {
+                this.setState(({ userPosts: blogPosts.filter(blogPost => blogPost.creator == this.state.userData.email) }));
+                this.setState(({ likedPosts: blogPosts.filter(blogPost => blogPost.likes.includes(this.state.userData.email)) }));
+                this.setState(({ comments: blogPosts.filter(blogPost => blogPost.comments.includes(this.state.userData.email)) }));
             })
             .catch(err => console.log(err));
+        // blogPostService.getUserPosts(this.state.userData.email)
+        //     .then(userPosts => {
+        //         this.setState({ userPosts });
+        //     })
+        //     .catch(err => console.log(err));
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -28,25 +40,41 @@ class Profile extends Component {
         // const currentAuthStatus = authService.getData().isAuthenticated;
         if (prevState.userData.isAuthenticated !== authService.getData().isAuthenticated) {
             this.setState({ userData: authService.getData() });
-        }     
+        }
 
-        
+
         if (prevState.userData.userEmail == this.state.userData.userEmail) {
             return;
         }
 
-        blogPostService.getUserPosts(this.state.userData.email)
-            .then(userPosts => {
-                this.setState({ userPosts });
+        blogPostService.getAll()
+            .then(blogPosts => {
+                this.setState(({ userPosts: blogPosts.filter(blogPost => blogPost.creator == this.state.userData.email) }));
+                this.setState(({ likedPosts: blogPosts.filter(blogPost => blogPost.likes.includes(this.state.userData.email)) }));
+                this.setState(({ comments: blogPosts.filter(blogPost => blogPost.comments.includes(this.state.userData.email)) }));
+
+                // this.state.likedPosts = blogPosts.filter(blogPost => blogPost.likes.includes(this.state.userData.email));
+                // this.state.comments = blogPosts.filter(blogPost => blogPost.comments.includes(this.state.userData.email));
             })
             .catch(err => console.log(err));
+
+        // blogPostService.getUserPosts(this.state.userData.email)
+        //     .then(userPosts => {
+        //         this.setState({ userPosts });
+        //     })
+        //     .catch(err => console.log(err));
     }
 
     render() {
         return (
             <article className={style.blogArticle}>
-                <h2>My posts</h2>
+                <section className={style.userSummary}>
+                    <span>Created posts: {this.state.userPosts.length}</span>
+                    <span>Liked posts: {this.state.likedPosts.length}</span>
+                    <span>Comments: {this.state.comments.length}</span>
+                </section>
                 {this.state.userData.isAuthenticated && <Link className={style.createBlogPostLink} to='/create-blog-post'>Create a new post</Link>}
+                <h2>My posts</h2>
                 {this.state.userPosts.map((userPost, index) => {
                     return <BlogPost postIndex={index} key={userPost.id} blogPost={{ ...userPost }} />
                 })}

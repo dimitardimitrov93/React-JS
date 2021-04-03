@@ -13,9 +13,23 @@
 
 .blogArticle h2 {
     text-align: center;
+    margin: 0.5em;
 }
 
 .createBlogPostLink {
     align-self: center;
-    margin-bottom: 0.4em;
+    margin-top: 0.6em;
+}
+
+.userSummary {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding-top: 1em;
+}
+
+.userSummary span {
+    padding: 0.2em 0.8em 0.2em 0.8em;
+    border-radius: 1em;
+    background-color: rgb(224, 207, 212);
 }

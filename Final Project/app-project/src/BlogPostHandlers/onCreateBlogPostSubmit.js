@@ -12,6 +12,7 @@ function onCreateBlogPostSubmit(e) {
         imageUrl: formData.get('imageUrl'),
         content: formData.get('content'),
         creator: JSON.parse(localStorage.getItem('auth')).email,
+        likes: [""],
     }
 
     // Inputs check

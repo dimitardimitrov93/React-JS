@@ -1,4 +1,15 @@
+.detailsWrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    background-color: white;
+
+}
+
 .blogPostDetails {
+    height: 100%;
     box-sizing: border-box;
     display: flex;
     flex-flow: column wrap;
@@ -19,6 +30,45 @@
     text-align: justify;
 }
 
-.blogPostDetails button {
-    width: 30%;
+.userActions {
+    width: 80%;
+    height: 8%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: baseline;
+    margin-top: 1em;
+    text-align: center;
+}
+
+.actionsButton,
+.liked {
+    width: 20%;
+    height: 2em;
+    padding: 0.2em;
+    margin-left: 0.7em;
+    font-size: 1em;
+    border-radius: 1.3em;
+    border: none;
+    background-color: white;
+    color: #000000;
+}
+
+.actionsButton:hover {
+    cursor: pointer;
+}
+
+.actionsButton:focus {
+    outline: none;
+    border: none;
+}
+
+.actionsButton:active,
+.liked {
+    color: white;
+    background-color: #7c123a5e;
+}
+
+.actionsButton i {
+    padding-right: 0.4em;
 }

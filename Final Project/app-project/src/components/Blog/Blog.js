@@ -46,11 +46,11 @@ class Blog extends Component {
     render() {
         return (
             <article className={style.blogArticle}>
-                <h2>Blog Posts</h2>
                 {this.state.isAuthenticated && <Link className={style.createBlogPostLink} to='/create-blog-post'>Create a new post</Link>}
+                <h2>Blog Posts</h2>
                 <CategoriesNav />
                 {this.state.blogPosts.map((blogPost, index) => {
-                    return <BlogPost postIndex={index} key={blogPost.id} blogPost={{ ...blogPost }} />
+                    return <BlogPost postIndex={index} key={blogPost.id} blogPost={{ ...blogPost }} isAuthenticated={this.state.isAuthenticated} />
                 })}
 
             </article>

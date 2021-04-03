@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { Redirect } from 'react-router-dom';
+
 import style from './BlogPostEdit.module.css';
 import blogPostService from '../../services/blogPostService';
 import onEditBlogPostSubmit from '../../BlogPostHandlers/onEditBlogPostSubmit';

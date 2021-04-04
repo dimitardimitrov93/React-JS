@@ -1,4 +1,11 @@
 .inputError {
-    color: red;
+    display: inline-block;
+    margin: 0.5em;
+    padding: 0.6em;
+    width: 96%;
+    border-radius: 1.3em;
+    text-align: center;
+    color: #ffffff;
     font-weight: bold;
+    background-color: #ff0000;
 }

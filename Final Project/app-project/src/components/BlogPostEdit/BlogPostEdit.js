@@ -28,7 +28,7 @@ const BlogPostEdit = ({ match, history }) => {
 
             <section className={style.editBlogPostForm}>
 
-                <form onSubmit={edit}>
+                <form name="editBlogPostForm" onSubmit={edit}>
                     <input type="title" name="title" defaultValue={blogPost.title} required />
                     <label htmlFor="category">Category</label>
                     <select name="category">

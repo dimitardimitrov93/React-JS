@@ -105,9 +105,9 @@ class App extends Component {
                             <Route
                                 exact
                                 path="/create-blog-post"
-                                render={() =>
+                                render={(props) =>
                                     (this.state.userData.isAuthenticated
-                                        ? <CreateBlogPost />
+                                        ? <CreateBlogPost upperProps={props} userData={this.state.userData}/>
                                         : <Redirect to="/login" />)
                                 }
                             />

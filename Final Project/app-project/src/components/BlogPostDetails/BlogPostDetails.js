@@ -16,6 +16,7 @@ class BlogPostDetails extends Component {
             },
             userData: authService.getData(),
             match: this.props.props.match,
+            deleteConfirmationStyle: 'hideDeleteConfirmation',
         }
     }
 
@@ -63,6 +64,26 @@ class BlogPostDetails extends Component {
             .catch(error => console.log(error));
     }
 
+    delete() {
+        const history = this.props.props.history;
+
+        blogPostService.deleteBlogPost(this.state.blogPost.blogPostId)
+            .then(() => {
+                history.push(`/profile/${this.state.userData.email}`);
+            })
+            .catch(error => console.log(error));
+    }
+
+    showDeleteConfirmation() {
+        this.setState({ deleteConfirmationStyle: 'showDeleteConfirmation' });
+        return;
+    }
+
+    hideDeleteConfirmation() {
+        this.setState({ deleteConfirmationStyle: 'hideDeleteConfirmation' });
+        return;
+    }
+
     // likePost(e) {
     //     onLikePost(e)
     //         .then(() => {
@@ -97,7 +118,7 @@ class BlogPostDetails extends Component {
                             && isCreator
                             && (
                                 <div className={style.userActions}>
-                                    <Link className={style.actionsButton} to={`/blog/${blogPost.category}/${blogPost.blogPostId}/delete`} blogPostId>Delete</ Link>
+                                    <Link className={style.actionsButton} onClick={this.showDeleteConfirmation.bind(this)}>Delete</ Link>
                                     <Link className={style.actionsButton} to={`/blog/${blogPost.category}/${blogPost.blogPostId}/edit`}>Edit</ Link>
                                     <span className={style.liked}>Likes: {likesNumber}</span>
                                 </div>
@@ -131,6 +152,12 @@ class BlogPostDetails extends Component {
                             }
                         </div>
 
+                    </div>
+
+                    <div className={style[this.state.deleteConfirmationStyle]}>
+                        <h3>Are you sure you want to delete this post?</h3>
+                        <span onClick={this.delete.bind(this)}>Yes</span>
+                        <span onClick={this.hideDeleteConfirmation.bind(this)}>No</span>
                     </div>
                 </div>
             </main>

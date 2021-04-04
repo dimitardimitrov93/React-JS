@@ -57,8 +57,8 @@ async function addBlogPost(blogPostData) {
     return res;
 }
 
-async function deleteBlogPost(destinationId) {
-    const res = await request(`${databaseUrl}/destinations/${destinationId}.json?auth=${authService.getData().idToken}`, 'DELETE');
+async function deleteBlogPost(blogPostId) {
+    const res = await request(`${databaseUrl}/blogPosts/${blogPostId}.json?auth=${authService.getData().idToken}`, 'DELETE');
     return res;
 }
 
@@ -89,4 +89,5 @@ export default {
     getUserPosts,
     editBlogPost,
     likePost,
+    deleteBlogPost,
 };

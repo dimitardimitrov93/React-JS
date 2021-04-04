@@ -12,7 +12,7 @@ function onCreateBlogPostSubmit(e) {
         imageUrl: formData.get('imageUrl'),
         content: formData.get('content'),
         creator: JSON.parse(localStorage.getItem('auth')).email,
-        likes: [""],
+        peopleLiked: [""],
     }
 
     // Inputs check
@@ -38,14 +38,14 @@ function onCreateBlogPostSubmit(e) {
     //     return;
     // }
 
-    blogPostService.addBlogPost(blogPostData)
+    return blogPostService.addBlogPost(blogPostData)
         .then(res => {
-            // console.log('Destination created successfully.');
-            console.log(res);
-            
-            // clearLoadingNotification();
-            // navigate('/home')
-            // displaySuccessNotification('Destination created successfully.');
+            return res;
+            // // console.log('Destination created successfully.');
+            // console.log(res);
+            // // clearLoadingNotification();
+            // // navigate('/home')
+            // // displaySuccessNotification('Destination created successfully.');
         })
         .catch(error => {
             console.log(error);

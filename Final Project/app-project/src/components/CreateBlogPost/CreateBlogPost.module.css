@@ -64,7 +64,9 @@
     color: #D41872;
 }
 
-.submit-btn {
+.submit-btn,
+.submit-btn-disabled {
+   width: 90%;
    align-self: center;
    margin-top: 2.5em;
    margin-bottom: 1em;
@@ -74,7 +76,12 @@
    border-radius: 1.3em;
    color: #FFFFFF;
    background-color: #D41872;
-   width: 90%;
+}
+
+.createBlogPostForm form .submit-btn-disabled {
+    border: none;
+    background-color: #808080;
+    pointer-events: none;
 }
 
 .submit-btn:hover {

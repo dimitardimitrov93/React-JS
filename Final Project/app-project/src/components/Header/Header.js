@@ -31,6 +31,7 @@ function Header(props) {
                 </div>)
             }
 
+            <h1>Sip N Smi)e</h1>
 
             <nav className={style.navigation}>
                 <ul className={style.navigationUl}>

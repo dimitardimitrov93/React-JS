@@ -4,7 +4,7 @@
     margin: auto;
     width: 60%;
     background-color: white;
-    padding: 0 2em 0 2em;
+    padding: 0 2em 2em 2em;
     border: 2px solid #fff;
     box-shadow: 0 0 20px 5px #ccc;
     font-size: 1.2em;
@@ -16,19 +16,30 @@
     margin: 0.5em;
 }
 
-.createBlogPostLink {
+.userSummary .createBlogPostLink {
     align-self: center;
-    margin-top: 0.6em;
+    background-color: #D41872;
+    color: white;
+    transition: transform .2s;
+}
+
+.createBlogPostLink:hover {
+    transform: scale(1.1);
 }
 
 .userSummary {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
-    padding-top: 1em;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 2em;
+    padding-bottom: 2em;
 }
 
-.userSummary span {
+.userSummary span,
+.createBlogPostLink {
+    font-size: 1em;
+    height: 2em;
     padding: 0.2em 0.8em 0.2em 0.8em;
     border-radius: 1em;
     background-color: rgb(224, 207, 212);

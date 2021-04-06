@@ -16,7 +16,7 @@ function BlogPost({ blogPost, postIndex, isAuthenticated }) {
             <section className={style.blogSection}>
                 <h3>{blogPost.title}</h3>
                 <img className={style.blogImageOdd} src={blogPost.imageUrl} />
-                <p className={style.blogParagraphOdd}>{blogPost.content.slice(0, 680) + '...'}</p>
+                <p className={style.blogParagraphOdd}>{blogPost.content.slice(0, 640) + '...'}</p>
                 {islogged
                     ? <Link className={style.blogPostLinkOdd} to={`/blog/${blogPost.category}/${blogPost.id}`}>Read the whole post</Link>
                     : <Link className={style.blogPostLinkOdd} to={`/login`}>Login to read the whole post</Link>
@@ -28,7 +28,7 @@ function BlogPost({ blogPost, postIndex, isAuthenticated }) {
             <section className={style.blogSection}>
                 <h3>{blogPost.title}</h3>
                 <img className={style.blogImage} src={blogPost.imageUrl} />
-                <p className={style.blogParagraph}>{blogPost.content.slice(0, 680) + '...'}</p>
+                <p className={style.blogParagraph}>{blogPost.content.slice(0, 640) + '...'}</p>
                 {islogged
                     ? <Link className={style.blogPostLink} to={`/blog/${blogPost.category}/${blogPost.id}`}>Read the whole post</Link>
                     : <Link className={style.blogPostLink} to={`/login`}>Login to read the whole post</Link>

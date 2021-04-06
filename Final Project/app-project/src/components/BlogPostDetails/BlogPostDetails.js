@@ -101,7 +101,9 @@ class BlogPostDetails extends Component {
 
         if (blogPost.peopleLiked) {
             hasntLiked = !blogPost.peopleLiked.includes(this.state.userData.email);
-            likesNumber = blogPost.peopleLiked.length;
+            likesNumber = blogPost.peopleLiked.includes('') 
+                ? 0 
+                : blogPost.peopleLiked.length;
         }
 
         return (
@@ -143,6 +145,7 @@ class BlogPostDetails extends Component {
                             }
                             {
                                 !hasntLiked
+                                && !isCreator
                                 && (
                                     <div className={style.userActions}>
                                         {/* <span className={style.liked}>You like this post!</span> */}

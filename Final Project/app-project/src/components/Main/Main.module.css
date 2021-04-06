@@ -27,3 +27,8 @@ h1 {
     /* border:1px solid red; */
     height: 45vh;
 }
+
+.infoSource a {
+    padding-left: 0.3em;
+    font-size: 1.1em;
+}

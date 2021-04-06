@@ -5,7 +5,6 @@
     flex-flow: column wrap;
     align-items: center;
     background-color: white;
-
 }
 
 .blogPostDetails {
@@ -16,7 +15,13 @@
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+    padding: 1.5em;
     background-color: #cf26675e;
+    color: white;
+}
+
+.blogPostDetails h2 {
+    text-transform: capitalize;
 }
 
 .blogPostDetails img {
@@ -30,6 +35,9 @@
 .blogPostDetails p {
     width: 80%;
     text-align: justify;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    line-height: 1.5em;
 }
 
 .userActions {

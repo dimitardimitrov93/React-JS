@@ -1,9 +1,13 @@
 import style from './Register.module.css';
 import onRegisterSubmit from '../../AuthFormHandlers/onRegisterSubmit'
+import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import InputError from '../Shared/InputError';
 
 function Register({ history }) {
+
+    // const [errorMessage, setErrorMessage] = useState('');
+
     const register = (e) => {
         // const formData = new FormData(e.target);
         // const email = formData.get('email');

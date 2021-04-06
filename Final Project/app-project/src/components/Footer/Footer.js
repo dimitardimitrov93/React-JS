@@ -1,11 +1,35 @@
-import './Footer.css';
+import style from './Footer.module.css';
 import FooterListItem from './FooterListItem';
 
 function Footer() {
     return (
-        <footer className="footer">
+        <footer className={style.footer}>
             <ul>
-                {/* <FooterListItem>Going to 1</FooterListItem> */}
+                <li>
+                    <a href="https://facebook.com">
+                        <i class="fab fa-facebook-square"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://google.com">
+                        <i class="fab fa-google-plus"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://linkedin.com">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
             </ul>
             <p>Sip &amp; Smile 2021 &copy;</p>
         </footer>

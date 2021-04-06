@@ -9,6 +9,7 @@
 
 .blogSection h3 {
     text-align: center;
+    text-transform: capitalize;
 }
 
 .blogImage,

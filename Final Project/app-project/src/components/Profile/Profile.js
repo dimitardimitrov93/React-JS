@@ -71,11 +71,15 @@ class Profile extends Component {
             <article className={style.blogArticle}>
                 <section className={style.userSummary}>
                     <span>Created posts: {this.state.userPosts.length}</span>
+                    {this.state.userData.isAuthenticated && <Link className={style.createBlogPostLink} to='/create-blog-post'>Create a new post</Link>}
                     <span>Liked posts: {this.state.likedPosts.length}</span>
-                    <span>Comments: {this.state.comments.length}</span>
+                    {/* <span>Comments: {this.state.comments.length}</span> */}
                 </section>
-                {this.state.userData.isAuthenticated && <Link className={style.createBlogPostLink} to='/create-blog-post'>Create a new post</Link>}
-                <h2>My posts</h2>
+
+                {this.state.userPosts[0]
+                    && <h2>My Posts</h2>
+                }
+
                 {this.state.userPosts.map((userPost, index) => {
                     return <BlogPost postIndex={index} key={userPost.id} blogPost={{ ...userPost }} />
                 })}

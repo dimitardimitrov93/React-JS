@@ -1,9 +1,8 @@
 import blogPostService from '../services/blogPostService';
 
-function onEditBlogPostSubmit(e) {
+function onEditBlogPostSubmit(e, blogPostId) {
     e.preventDefault();
     
-    const blogPostId = e.target.children[5].dataset.id;
     const formData = new FormData(e.target);
 
     const blogPostData = {

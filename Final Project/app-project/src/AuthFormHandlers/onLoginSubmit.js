@@ -30,7 +30,13 @@ async function onLoginSubmit(e) {
             // displaySuccessNotification('Login successful.');
         })
         .catch(error => {
-            console.log(error);
+            let errorMessage = error.message
+                .replace(new RegExp(/_/g), ' ')
+                .split(' ')
+                .map(word => `${word[0].toUpperCase()}${word.slice(1).toLowerCase()}`)
+                .join(' ');
+
+            return Promise.reject(errorMessage);
             
             // Format the error messages from Firebase DB
             // clearLoadingNotification();

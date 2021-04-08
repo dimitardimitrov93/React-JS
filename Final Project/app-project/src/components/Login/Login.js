@@ -3,7 +3,7 @@ import { Link, NavLink, Redirect } from 'react-router-dom';
 import { Component } from 'react';
 import onLoginSubmit from '../../AuthFormHandlers/onLoginSubmit';
 import authService from '../../services/authService';
-
+import InputError from '../Shared/InputError';
 
 class Login extends Component {
     constructor(props) {
@@ -13,6 +13,8 @@ class Login extends Component {
             email: '',
             password: '',
             isAuthenticated: false,
+            error: '',
+            inputErrorStyle: 'hide',
         }
     }
 
@@ -20,15 +22,23 @@ class Login extends Component {
         onLoginSubmit(e)
             .then(res => {
                 console.log(res);
-                
+
                 if (res.idToken) {
-                    this.setState({ isAuthenticated: true })
+                    this.setState({ isAuthenticated: true });
+
                     console.log(this.props.appContext);
-                    
+
                     this.props.appContext.setState({ userData: authService.getData() });
                 }
             })
-            .catch(error => console.log(error));
+            .catch(error => {
+                this.setState({ inputErrorStyle: 'show' });
+                this.setState({ error: error });
+            });
+    }
+
+    changeInputErrorStyle() {
+        this.setState({ inputErrorStyle: 'hide' });
     }
 
     // const onLoginSubmit = (e) => {
@@ -52,11 +62,14 @@ class Login extends Component {
             <div className={style.mainWrapper} >
                 <main className={style.main}>
                     <section className={style['login-form']}>
+                        <div className={style[this.state.inputErrorStyle]}>
+                            <InputError>{this.state.error}</InputError>
+                        </div>
                         <h1>Account Login</h1>
                         <form onSubmit={this.handleSubmit.bind(this)}>
-                            <input type="text" name="email" placeholder="Email" required />
+                            <input type="text" name="email" placeholder="Email" required onFocus={this.changeInputErrorStyle.bind(this)} />
 
-                            <input type="password" name="password" placeholder="Password" required />
+                            <input type="password" name="password" placeholder="Password" required onFocus={this.changeInputErrorStyle.bind(this)} />
 
                             <input className={style['login-btn']} type="submit" value="LOGIN" />
 

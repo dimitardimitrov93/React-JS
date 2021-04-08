@@ -38,15 +38,16 @@ function onEditBlogPostSubmit(e, blogPostId) {
 
     return blogPostService.editBlogPost(blogPostId, blogPostData)
         .then(res => {
+            return res;
             // console.log('Destination created successfully.');
-            console.log(res);
+            // console.log(res);
             // clearLoadingNotification();
             // navigate('/home')
             // displaySuccessNotification('Destination created successfully.');
         })
         .catch(error => {
             console.log(error);
-
+            return error;
             // clearLoadingNotification();
             // displayErrorNotification(error.message);
         });

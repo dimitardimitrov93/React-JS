@@ -49,7 +49,7 @@ function onCreateBlogPostSubmit(e) {
         })
         .catch(error => {
             console.log(error);
-
+            return error;
             // clearLoadingNotification();
             // displayErrorNotification(error.message);
         });

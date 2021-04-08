@@ -14,10 +14,14 @@ async function onLikePost(e) {
 
     await blogPostService.likePost(blogPostId, { peopleLiked })
         .then(res => {
+            return res;
             // document.getElementById('loadingBox').style.display = 'none';
             // navigate(`/details/${recipeId}`);
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+            console.log(error);
+            return error;
+        });
 }
 
 export default onLikePost;

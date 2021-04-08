@@ -25,7 +25,7 @@ class Profile extends Component {
             .then(blogPosts => {
                 this.setState(({ userPosts: blogPosts.filter(blogPost => blogPost.creator == this.state.userData.email) }));
                 this.setState(({ likedPosts: blogPosts.filter(blogPost => blogPost.peopleLiked.includes(this.state.userData.email)) }));
-                this.setState(({ comments: blogPosts.filter(blogPost => blogPost.comments.includes(this.state.userData.email)) }));
+                // this.setState(({ comments: blogPosts.filter(blogPost => blogPost.comments.includes(this.state.userData.email)) }));
             })
             .catch(err => console.log(err));
         // blogPostService.getUserPosts(this.state.userData.email)
@@ -52,7 +52,7 @@ class Profile extends Component {
             .then(blogPosts => {
                 this.setState(({ userPosts: blogPosts.filter(blogPost => blogPost.creator == this.state.userData.email) }));
                 this.setState(({ likedPosts: blogPosts.filter(blogPost => blogPost.peopleLiked.includes(this.state.userData.email)) }));
-                this.setState(({ comments: blogPosts.filter(blogPost => blogPost.comments.includes(this.state.userData.email)) }));
+                // this.setState(({ comments: blogPosts.filter(blogPost => blogPost.comments.includes(this.state.userData.email)) }));
 
                 // this.state.likedPosts = blogPosts.filter(blogPost => blogPost.likes.includes(this.state.userData.email));
                 // this.state.comments = blogPosts.filter(blogPost => blogPost.comments.includes(this.state.userData.email));

@@ -1,6 +1,7 @@
 .blogArticle {
     display: flex;
     flex-flow: column wrap;
+    min-height: 51vh;
     margin: auto;
     width: 60%;
     background-color: white;

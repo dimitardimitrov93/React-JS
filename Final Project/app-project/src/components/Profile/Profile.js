@@ -76,8 +76,9 @@ class Profile extends Component {
                     {/* <span>Comments: {this.state.comments.length}</span> */}
                 </section>
 
-                {this.state.userPosts[0]
-                    && <h2>My Posts</h2>
+                {this.state.userPosts[0] 
+                    ? <h2>My Posts</h2>
+                    : <h2>No posts yet</h2>    
                 }
 
                 {this.state.userPosts.map((userPost, index) => {

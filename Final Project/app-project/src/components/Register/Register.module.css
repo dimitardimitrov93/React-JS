@@ -1,11 +1,18 @@
+.main {
+    height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .register-form {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     height: 28rem;
-    width: 35%;
-    margin: auto;
+    width: 40%;
 }
 
 .register-form h1 {
@@ -30,7 +37,8 @@
 .register-form form input:nth-child(2),
 .register-form form input:nth-child(3) {
     width: 100%;
-    padding: 1em 0.5em 0.7em 4em;
+    padding: 1em 0.5em 1.2em 4em;
+    margin-bottom: 0.5em;
     border: none;
     border-bottom: 1px solid #EFEFEF;
     outline: none;

@@ -6,7 +6,7 @@ const ContactUs = () => {
         <main className={style.main}>
             <h1 id="contactForm" className={style.contactUsHeading}>Write us</h1>
 
-            <form className={style.contactForm} onSubmit={onContactFormSubmit}>
+            <form className={style.contactForm}>
 
                 <div className={style.formInputWrapper}>
                     <input id="email" type="email" placeholder="Email" />

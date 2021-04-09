@@ -1,0 +1,27 @@
+.inputWrapper {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.inputWrapper select {
+    margin-bottom: 2em;
+    width: 85%;
+    padding: 1em 0.3em 0.7em 0em;
+    border: none;
+    border-bottom: 1px solid #D41872;
+    outline: none;
+    font-family: inherit;
+    font-size: 1em;
+}
+
+.inputWrapper label {
+    margin-bottom: 2em;
+    padding: 1em 0.3em 0.7em 0em;
+
+    align-self: flex-start;
+    color: #D41872;
+}

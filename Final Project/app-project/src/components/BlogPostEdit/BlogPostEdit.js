@@ -1,16 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 
 import style from './BlogPostEdit.module.css';
+import SelectMenu from './SelectMenu';
+
 import blogPostService from '../../services/blogPostService';
 import onEditBlogPostSubmit from '../../BlogPostHandlers/onEditBlogPostSubmit';
 
-const BlogPostEdit = ({ match, history }) => {
+const BlogPostEdit = ({ props }) => {
+
     const [blogPost, setBlogPost] = useState({});
-    const blogPostId = match.params.blogPostId;
+    const blogPostId = props.match.params.blogPostId;
 
     useEffect(() => {
-        blogPostService.getOne(match.params.blogPostId)
+        blogPostService.getOne(props.match.params.blogPostId)
             .then(blogPost => setBlogPost(blogPost))
             .catch(error => console.log(error));
     }, []);
@@ -18,7 +21,7 @@ const BlogPostEdit = ({ match, history }) => {
     const edit = (e) => {
         onEditBlogPostSubmit(e, blogPostId)
             .then(() => {
-                history.push(`/blog/${blogPost.category}/${match.params.blogPostId}`);
+                props.history.push(`/blog/${blogPost.category}/${props.match.params.blogPostId}`);
             })
             .catch(error => console.log(error));
     }
@@ -30,28 +33,23 @@ const BlogPostEdit = ({ match, history }) => {
             <section className={style.editBlogPostForm}>
 
                 <form name="editBlogPostForm" onSubmit={edit}>
+
                     <div className={style.inputWrapper}>
                         <label htmlFor="title">Title</label>
 
                         <input type="title" name="title" defaultValue={blogPost.title} required />
                     </div>
-                    <div className={style.inputWrapper}>
 
-                        <label htmlFor="category">Category</label>
-                        <select name="category">
-                            <option value="mocha">Mocha</option>
-                            <option value="espresso">Espresso</option>
-                            <option value="latte">Latte</option>
-                            <option value="Cappuccino">Cappuccino</option>
-                        </select>
-                    </div>
+                    <SelectMenu category={blogPost.category} />
+
                     <div className={style.inputWrapper}>
                         <label htmlFor="imageUrl">Image Url</label>
 
                         <input type="text" name="imageUrl" value={blogPost.imageUrl} required />
                     </div>
+
                     <textarea className={style.contentArea} name="content" cols="30" rows="10" defaultValue={blogPost.content}></textarea>
-                    <input type="submit" className={style['submit-btn']} value="Edit" data-id={match.params.blogPostId} />
+                    <input type="submit" className={style['submit-btn']} value="Edit" data-id={props.match.params.blogPostId} />
                     {/* <span class="successful-reg-msg">You were registered successfully. Now you can <NavLink className={style.loginLink} to='/login'>log in.</NavLink></span>
                         <span class="unsuccessful-reg-msg"></span> */}
                 </form>

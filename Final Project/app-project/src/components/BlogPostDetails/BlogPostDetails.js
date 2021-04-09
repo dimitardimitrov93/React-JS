@@ -120,7 +120,7 @@ class BlogPostDetails extends Component {
                             && isCreator
                             && (
                                 <div className={style.userActions}>
-                                    <Link className={style.actionsButton} onClick={this.showDeleteConfirmation.bind(this)}>Delete</ Link>
+                                    <span className={style.actionsButton} onClick={this.showDeleteConfirmation.bind(this)}>Delete</ span>
                                     <Link className={style.actionsButton} to={`/blog/${blogPost.category}/${blogPost.blogPostId}/edit`}>Edit</ Link>
                                     <span className={style.liked}>Likes: {likesNumber}</span>
                                 </div>

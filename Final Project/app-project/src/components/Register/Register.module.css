@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     height: 28rem;
-    width: 40%;
+    min-width: 45%;
 }
 
 .register-form h1 {
@@ -26,11 +26,12 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    min-width: 100%;
     position: relative;
     background-color: #FFFFFF;
     border-radius: 0.8em;
-    height: 60%;
+    padding: 0.5em;
+    min-height: 60%;
 }
 
 .register-form form input:nth-child(1),

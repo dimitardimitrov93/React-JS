@@ -107,7 +107,7 @@ class App extends Component {
                                 path="/create-blog-post"
                                 render={(props) =>
                                     (this.state.userData.isAuthenticated
-                                        ? <CreateBlogPost upperProps={props} userData={this.state.userData}/>
+                                        ? <CreateBlogPost upperProps={props} userData={this.state.userData} />
                                         : <Redirect to="/login" />)
                                 }
                             />
@@ -121,14 +121,30 @@ class App extends Component {
                                 path="/blog/:blogPostCategory/:blogPostId"
                                 render={(props) =>
                                     (this.state.userData.isAuthenticated
-                                        ? <BlogPostDetails props={props}/>
+                                        ? <BlogPostDetails props={props} />
                                         : <Redirect to="/login" />)
                                 }
                             />
 
-                            <Route path="/blog/:blogPostCategory/:blogPostId" component={BlogPostDetails} exact />
+                            <Route
+                                exact
+                                path="/blog/:blogPostCategory/:blogPostId/edit"
+                                render={(props) =>
+                                    (this.state.userData.isAuthenticated
+                                        ? <BlogPostEdit props={props} />
+                                        : <Redirect to="/login" />)
+                                }
+                            />
 
-                            <Route path="/blog/:blogPostCategory/:blogPostId/edit" component={BlogPostEdit} exact />
+                            <Route
+                                exact
+                                path="/blog/:blogPostCategory/:blogPostId"
+                                render={(props) =>
+                                    (this.state.userData.isAuthenticated
+                                        ? <BlogPostDetails props={props} />
+                                        : <Redirect to="/login" />)
+                                }
+                            />
 
                             <Route path="/about" component={About} />
 

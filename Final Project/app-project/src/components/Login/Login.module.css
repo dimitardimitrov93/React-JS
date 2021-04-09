@@ -23,7 +23,7 @@
     justify-content: center;
     align-items: center;
     height: 28rem;
-    width: 35%;
+    min-width: 35%;
     margin: 2em auto 2em auto;
 }
 
@@ -39,11 +39,12 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    min-width: 100%;
     position: relative;
     background-color: #FFFFFF;
     border-radius: 0.8em;
-    height: 60%;
+    padding: 2em;
+    min-height: 60%;
 }
 
 .login-form form input:nth-child(1),

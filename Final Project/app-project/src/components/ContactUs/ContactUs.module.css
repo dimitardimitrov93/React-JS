@@ -68,6 +68,7 @@
     background-color: #cf2667;
     color: white;
     padding: 0.5em 1em 0.5em 1em;
+    cursor: pointer;
 }
 
 /* .formButtonWrapper button:active {

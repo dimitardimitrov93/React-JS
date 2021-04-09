@@ -8,6 +8,7 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    text-align: justify;
     background-color: white;
     padding: 0 2em 0 2em;
     border: 2px solid #fff;

@@ -112,12 +112,14 @@
     border: 2px solid #e0095b;
 }
 
-.showDeleteConfirmation span:hover {
+.showDeleteConfirmation span:hover,
+.userActions .actionsButton:hover {
     cursor: pointer;
     background-color: #e0095b42;
 }
 
-.showDeleteConfirmation span:active {
+.showDeleteConfirmation span:active,
+.userActions .actionsButton:active {
     background-color: #e0095b;
     color: white;
 }

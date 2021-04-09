@@ -45,7 +45,7 @@ const BlogPostEdit = ({ props }) => {
                     <div className={style.inputWrapper}>
                         <label htmlFor="imageUrl">Image Url</label>
 
-                        <input type="text" name="imageUrl" value={blogPost.imageUrl} required />
+                        <input type="text" name="imageUrl" defaultValue={blogPost.imageUrl} required />
                     </div>
 
                     <textarea className={style.contentArea} name="content" cols="30" rows="10" defaultValue={blogPost.content}></textarea>

@@ -25,9 +25,6 @@ class Login extends Component {
 
                 if (res.idToken) {
                     this.setState({ isAuthenticated: true });
-
-                    console.log(this.props.appContext);
-
                     this.props.appContext.setState({ userData: authService.getData() });
                 }
             })

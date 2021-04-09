@@ -17,8 +17,9 @@ import BlogPostDetails from './components/BlogPostDetails';
 import Profile from './components/Profile';
 import BlogPostEdit from './components/BlogPostEdit';
 
-const About = lazy(() => import('./components/About'));
-const ContactUs = lazy(() => import('./components/ContactUs'));
+import About from './components/About';
+import ContactUs from './components/ContactUs';
+
 const Blog = lazy(() => import('./components/Blog'));
 
 class App extends Component {
@@ -34,23 +35,14 @@ class App extends Component {
 
     componentDidMount() {
         const fromAuthService = authService.getData();
-        console.log(Boolean(this.state.userData));
 
         if (this.state.userData) {
             if (this.state.userData.email !== fromAuthService.email) {
                 this.setState({ userData: fromAuthService });
-                console.log(`${this.state.userData} didmount`);
-
             }
             return;
         } else {
-            console.log(fromAuthService);
-            console.log(this);
-
             this.setState({ userData: { ...fromAuthService } });
-            console.log(`${this.state.userData} didmount else`);
-
-
             return;
         }
     }
@@ -61,14 +53,10 @@ class App extends Component {
         if (this.state.userData) {
             if (this.state.userData.email !== fromAuthService.email) {
                 this.setState({ userData: fromAuthService });
-                console.log(`${this.state.userData} didupdate else`);
-
             }
             return;
         } else {
             this.setState({ userData: fromAuthService });
-            console.log(`${this.state.userData} didupdate else`);
-
             return;
         }
     }

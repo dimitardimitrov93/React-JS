@@ -1,8 +1,6 @@
 import style from './SelectMenu.module.css';
 
 const SelectMenu = ({ category }) => {
-    console.log(category);
-
     switch (category) {
         case 'mocha':
             return (

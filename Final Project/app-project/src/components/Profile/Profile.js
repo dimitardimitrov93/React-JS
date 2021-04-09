@@ -19,8 +19,6 @@ class Profile extends Component {
     }
 
     componentDidMount() {
-
-
         blogPostService.getAll()
             .then(blogPosts => {
                 this.setState(({ userPosts: blogPosts.filter(blogPost => blogPost.creator == this.state.userData.email) }));

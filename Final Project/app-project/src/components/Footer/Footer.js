@@ -7,27 +7,27 @@ function Footer() {
             <ul>
                 <li>
                     <a href="https://facebook.com">
-                        <i class="fab fa-facebook-square"></i>
+                        <i className="fab fa-facebook-square"></i>
                     </a>
                 </li>
                 <li>
                     <a href="https://twitter.com">
-                        <i class="fab fa-twitter"></i>
+                        <i className="fab fa-twitter"></i>
                     </a>
                 </li>
                 <li>
                     <a href="https://google.com">
-                        <i class="fab fa-google-plus"></i>
+                        <i className="fab fa-google-plus"></i>
                     </a>
                 </li>
                 <li>
                     <a href="https://linkedin.com">
-                        <i class="fab fa-linkedin"></i>
+                        <i className="fab fa-linkedin"></i>
                     </a>
                 </li>
                 <li>
                     <a href="https://instagram.com">
-                        <i class="fab fa-instagram"></i>
+                        <i className="fab fa-instagram"></i>
                     </a>
                 </li>
             </ul>

@@ -1,5 +1,5 @@
 import style from './ContactUs.module.css';
-import onContactFormSubmit from '../../services/contactFormService';
+// import onContactFormSubmit from '../../services/contactFormService';
 
 const ContactUs = () => {
     return (

@@ -1,5 +1,4 @@
 import style from './Footer.module.css';
-import FooterListItem from './FooterListItem';
 
 function Footer() {
     return (

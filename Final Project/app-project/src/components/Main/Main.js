@@ -1,5 +1,4 @@
 import style from './Main.module.css';
-import Post from './Post'
 
 function Main({
     posts

@@ -17,6 +17,9 @@ import BlogPostDetails from './components/BlogPostDetails';
 import Profile from './components/Profile';
 import BlogPostEdit from './components/BlogPostEdit';
 
+// import AuthContext from './contexts/AuthContext';
+// import isAuth from './hoc/isAuth';
+
 import About from './components/About';
 import ContactUs from './components/ContactUs';
 
@@ -77,9 +80,7 @@ class App extends Component {
         return (
             <div className={style.app}>
                 <div className={style.container}>
-                    {/* <Aside
-                        onListItemClick={this.onListItemClick.bind(this)}
-                    /> */}
+                    {/* <AuthContext.Provider value={this.userData}> */}
                     <Header appContext={this} userData={this.state.userData} />
 
                     <Suspense fallback={<div>Loading...</div>}>
@@ -118,8 +119,10 @@ class App extends Component {
                                 exact
                                 path="/blog/:blogPostCategory/:blogPostId/edit"
                                 render={(props) =>
+                                    
+
                                     (this.state.userData.isAuthenticated
-                                        ? <BlogPostEdit props={props} />
+                                        ? <BlogPostEdit props={props} userData={this.state.userData}/>
                                         : <Redirect to="/login" />)
                                 }
                             />
@@ -159,6 +162,7 @@ class App extends Component {
                     </Suspense>
 
                     <Footer />
+                    {/* </AuthContext.Provider> */}
                 </div>
             </div>
         );

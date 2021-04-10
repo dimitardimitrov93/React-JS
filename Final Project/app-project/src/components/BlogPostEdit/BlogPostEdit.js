@@ -8,12 +8,13 @@ import blogPostService from '../../services/blogPostService';
 import onEditBlogPostSubmit from '../../BlogPostHandlers/onEditBlogPostSubmit';
 import InputError from '../Shared/InputError';
 
-const BlogPostEdit = ({ props }) => {
+const BlogPostEdit = ({ props, userData }) => {
 
-    const [blogPost, setBlogPost] = useState({});
     const blogPostId = props.match.params.blogPostId;
+    const [blogPost, setBlogPost] = useState({});
     const [errorMessage, setErrorMessage] = useState('');
     const [submitButtonClassName, setSubmitButtonClassName] = useState(style['submit-btn']);
+    const [isCreator, setIsCreator] = useState(false);
 
     const onChangeHandler = (e) => {
         e.preventDefault();
@@ -49,7 +50,15 @@ const BlogPostEdit = ({ props }) => {
 
     useEffect(() => {
         blogPostService.getOne(props.match.params.blogPostId)
-            .then(blogPost => setBlogPost(blogPost))
+            .then(blogPost => {
+                if (blogPost.creator !== userData.email) {
+                    props.history.push(`/blog/${blogPost.category}/${blogPostId}`);
+                    return;
+                } else {
+                    setIsCreator(true);
+                    setBlogPost(blogPost);
+                }
+            })
             .catch(error => console.log(error));
     }, []);
 
@@ -61,39 +70,45 @@ const BlogPostEdit = ({ props }) => {
             .catch(error => console.log(error));
     }
 
-    return (
-        <div className={style.editBlogPostWrapper}>
-            <h2>Edit Your Post</h2>
+    if (isCreator) {
+        return (
+            <div className={style.editBlogPostWrapper}>
+                <h2>Edit Your Post</h2>
 
-            <section className={style.editBlogPostForm}>
+                <section className={style.editBlogPostForm}>
 
-                <InputError>{errorMessage}</InputError>
+                    <InputError>{errorMessage}</InputError>
 
-                <form name="editBlogPostForm" onSubmit={edit}>
+                    <form name="editBlogPostForm" onSubmit={edit}>
 
-                    <div className={style.inputWrapper}>
-                        <label htmlFor="title">Title</label>
+                        <div className={style.inputWrapper}>
+                            <label htmlFor="title">Title</label>
 
-                        <input type="title" name="title" defaultValue={blogPost.title} onBlur={onChangeHandler} required />
-                    </div>
+                            <input type="title" name="title" defaultValue={blogPost.title} onBlur={onChangeHandler} required />
+                        </div>
 
-                    <SelectMenu category={blogPost.category} />
+                        <SelectMenu category={blogPost.category} />
 
-                    <div className={style.inputWrapper}>
-                        <label htmlFor="imageUrl">Image Url</label>
+                        <div className={style.inputWrapper}>
+                            <label htmlFor="imageUrl">Image Url</label>
 
-                        <input type="text" name="imageUrl" defaultValue={blogPost.imageUrl} onBlur={onChangeHandler} required />
-                    </div>
+                            <input type="text" name="imageUrl" defaultValue={blogPost.imageUrl} onBlur={onChangeHandler} required />
+                        </div>
 
-                    <textarea className={style.contentArea} name="content" cols="30" rows="10" onBlur={onChangeHandler} defaultValue={blogPost.content}></textarea>
-                    <input type="submit" className={submitButtonClassName} value="Edit" data-id={props.match.params.blogPostId} />
+                        <textarea className={style.contentArea} name="content" cols="30" rows="10" onBlur={onChangeHandler} defaultValue={blogPost.content}></textarea>
+                        <input type="submit" className={submitButtonClassName} value="Edit" data-id={props.match.params.blogPostId} />
 
-                </form>
+                    </form>
 
-            </section>
+                </section>
 
-        </div>
-    );
+            </div>
+        );
+    } else {
+        return (
+            <div>Loading...</div>
+        );
+    }
 }
 
 export default BlogPostEdit;

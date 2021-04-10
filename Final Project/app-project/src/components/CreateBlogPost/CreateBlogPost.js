@@ -1,27 +1,17 @@
-import { Component, useState, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import style from './CreateBlogPost.module.css';
 import onCreateBlogPostSubmit from '../../BlogPostHandlers/onCreateBlogPostSubmit';
 import { Link, NavLink } from 'react-router-dom';
 import InputError from '../Shared/InputError';
+import AuthContext from '../../contexts/AuthContext';
 // import formInputsValidator from '../Shared/InputError/formInputsValidator';
 
 const CreateBlogPost = ({ upperProps, userData }) => {
-
-    // const onCreateBlogPostSubmit = (e) => {
-    //     e.preventDefault();
-
-    //     const formData = new FormData(e.target);
-
-    //     const blogPostData = {
-    //         title: formData.get('title'),
-    //          formData.get('category'),
-    //         imageUrl: formData.get('imageUrl'),
-    //         content: formData.get('content'),
-    //     }
-
-    //     console.log(blogPostData);
-    // }
-
+    const { isAuthenticated } = useContext(AuthContext);
+    console.log('==========================');
+    console.log(isAuthenticated);
+    console.log('==========================');
+    
     const [errorMessage, setErrorMessage] = useState('');
     const [submitButtonClassName, setSubmitButtonClassName] = useState(style['submit-btn']);
 
@@ -63,14 +53,6 @@ const CreateBlogPost = ({ upperProps, userData }) => {
                 upperProps.history.push(`/profile/${userData.email}`);
             })
             .catch(error => console.log(error));
-
-        // const postCategory = new FormData(e.target).get('category');
-
-        // onCreateBlogPostSubmit(e)
-        //     .then((res) => {
-        //         upperProps.history.push(`/blog/${postCategory}/${res.name}`);
-        //     })
-        //     .catch(error => console.log(error));
     }
 
     return (
@@ -80,13 +62,14 @@ const CreateBlogPost = ({ upperProps, userData }) => {
             <section className={style.createBlogPostForm}>
 
                 <InputError>{errorMessage}</InputError>
+
                 <form name="createBlogPostForm" onSubmit={post}>
                     <div className={style.inputWrapper}>
                         <label htmlFor="title">Title</label>
                         <input type="title" name="title" required onBlur={onChangeHandler} />
                     </div>
-                    <div className={style.inputWrapper}>
 
+                    <div className={style.inputWrapper}>
                         <label htmlFor="category">Category</label>
                         <select name="category" >
                             <option value="mocha">Mocha</option>
@@ -95,6 +78,7 @@ const CreateBlogPost = ({ upperProps, userData }) => {
                             <option value="Cappuccino">Cappuccino</option>
                         </select>
                     </div>
+
                     <div className={style.inputWrapper}>
 
                         <label htmlFor="imageUrl">Image Url</label>
@@ -103,9 +87,9 @@ const CreateBlogPost = ({ upperProps, userData }) => {
 
                     <label className={style.contentLabel} htmlFor="content">Content</label>
                     <textarea className={style.contentArea} name="content" id="" cols="30" rows="10" onBlur={onChangeHandler}></textarea>
+                    
                     <input type="submit" className={submitButtonClassName} value="Post" />
-                    {/* <span class="successful-reg-msg">You were registered successfully. Now you can <NavLink className={style.loginLink} to='/login'>log in.</NavLink></span>
-                        <span class="unsuccessful-reg-msg"></span> */}
+
                 </form>
 
             </section>

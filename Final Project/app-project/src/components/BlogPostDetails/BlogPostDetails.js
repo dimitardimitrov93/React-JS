@@ -4,7 +4,6 @@ import style from './BlogPostDetails.module.css';
 import blogPostService from '../../services/blogPostService';
 import onLikePost from '../../BlogPostHandlers/onLikePost';
 import authService from '../../services/authService';
-import history from '../../history';
 
 class BlogPostDetails extends Component {
     constructor(props) {

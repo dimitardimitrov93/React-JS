@@ -1,8 +1,6 @@
 import style from './Main.module.css';
 
-function Main({
-    posts
-}) {
+function Main() {
     return (
         <div className={style.mainWrapper}>
             <main className={style.main}>
@@ -22,9 +20,6 @@ function Main({
                         <a href="https://www.thehealthy.com/food/drink-coffee-every-day/">https://www.thehealthy.com/food/drink-coffee-every-day/</a>
                     </p>
                 </article>
-                {/* <div className="posts">
-                {posts.map(post => <Post key={post.id} post={post}/>)}
-            </div> */}
             </main>
         </div>
     );

@@ -1,14 +1,16 @@
 import { useEffect, useState, useContext } from 'react';
-import { Redirect } from 'react-router-dom';
 
 import style from './BlogPostEdit.module.css';
 import SelectMenu from './SelectMenu';
+
+import AuthContext from '../../contexts/AuthContext';
 
 import blogPostService from '../../services/blogPostService';
 import onEditBlogPostSubmit from '../../BlogPostHandlers/onEditBlogPostSubmit';
 import InputError from '../Shared/InputError';
 
-const BlogPostEdit = ({ props, userData }) => {
+const BlogPostEdit = ({ props }) => {
+    const userData = useContext(AuthContext).state.userData;
 
     const blogPostId = props.match.params.blogPostId;
     const [blogPost, setBlogPost] = useState({});

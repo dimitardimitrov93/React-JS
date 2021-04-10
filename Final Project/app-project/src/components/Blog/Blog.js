@@ -5,6 +5,7 @@ import BlogPost from './BlogPost';
 import CategoriesNav from './CategoriesNav';
 import blogPostService from '../../services/blogPostService';
 import authService from '../../services/authService';
+import AuthContext from '../../contexts/AuthContext';
 
 class Blog extends Component {
     constructor(props) {
@@ -13,11 +14,13 @@ class Blog extends Component {
         this.state = {
             blogPosts: [],
             category: this.props.match.params.category,
-            isAuthenticated: authService.getData().isAuthenticated,
+            isAuthenticated: false,
         }
     }
 
     componentDidMount() {
+        this.setState({isAuthenticated: this.context.state.userData.isAuthenticated});
+
         blogPostService.getAll(this.state.category)
             .then(blogPosts => {
                 this.setState({ blogPosts });
@@ -26,15 +29,12 @@ class Blog extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        // console.log(`${this.state.category} this.state.category`);
-        // const currentAuthStatus = authService.getData().isAuthenticated;
-        if (prevState.isAuthenticated !== authService.getData().isAuthenticated) {
-            this.setState({ isAuthenticated: authService.getData().isAuthenticated });
+        
+        if (prevState.isAuthenticated !== this.context.state.userData.isAuthenticated) {
+            this.setState({ isAuthenticated: this.context.state.userData.isAuthenticated });
         }     
 
-        if (prevProps.match.params.category == this.props.match.params.category) {
-            return;
-        }
+        if (prevProps.match.params.category == this.props.match.params.category) return;
 
         blogPostService.getAll(this.props.match.params.category)
             .then(blogPosts => {
@@ -46,6 +46,7 @@ class Blog extends Component {
     render() {
         return (
             <article className={style.blogArticle}>
+
                 {this.state.isAuthenticated && <Link className={style.createBlogPostLink} to='/create-blog-post'>Create a new post</Link>}
                 <h2>Blog Posts</h2>
                 <CategoriesNav />
@@ -57,5 +58,7 @@ class Blog extends Component {
         );
     }
 }
+
+Blog.contextType = AuthContext;
 
 export default Blog;

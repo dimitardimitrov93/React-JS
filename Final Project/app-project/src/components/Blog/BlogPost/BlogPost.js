@@ -1,6 +1,6 @@
 import style from './BlogPost.module.css';
 // import BlogPost from './BlogPost';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import authService from '../../../services/authService';
 

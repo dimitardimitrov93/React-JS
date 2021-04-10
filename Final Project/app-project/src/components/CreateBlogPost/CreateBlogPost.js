@@ -1,17 +1,15 @@
 import { useState, useContext } from 'react';
 import style from './CreateBlogPost.module.css';
 import onCreateBlogPostSubmit from '../../BlogPostHandlers/onCreateBlogPostSubmit';
-import { Link, NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import InputError from '../Shared/InputError';
 import AuthContext from '../../contexts/AuthContext';
 // import formInputsValidator from '../Shared/InputError/formInputsValidator';
 
-const CreateBlogPost = ({ upperProps, userData }) => {
-    const { isAuthenticated } = useContext(AuthContext);
-    console.log('==========================');
-    console.log(isAuthenticated);
-    console.log('==========================');
-    
+const CreateBlogPost = () => {
+    const { userData } = useContext(AuthContext).state;
+    const history = useHistory();
+
     const [errorMessage, setErrorMessage] = useState('');
     const [submitButtonClassName, setSubmitButtonClassName] = useState(style['submit-btn']);
 
@@ -50,7 +48,7 @@ const CreateBlogPost = ({ upperProps, userData }) => {
     const post = (e) => {
         onCreateBlogPostSubmit(e)
             .then((res) => {
-                upperProps.history.push(`/profile/${userData.email}`);
+                history.push(`/profile/${userData.email}`);
             })
             .catch(error => console.log(error));
     }
@@ -87,7 +85,7 @@ const CreateBlogPost = ({ upperProps, userData }) => {
 
                     <label className={style.contentLabel} htmlFor="content">Content</label>
                     <textarea className={style.contentArea} name="content" id="" cols="30" rows="10" onBlur={onChangeHandler}></textarea>
-                    
+
                     <input type="submit" className={submitButtonClassName} value="Post" />
 
                 </form>
@@ -97,5 +95,6 @@ const CreateBlogPost = ({ upperProps, userData }) => {
         </div>
     );
 }
+
 
 export default CreateBlogPost;

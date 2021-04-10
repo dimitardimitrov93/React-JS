@@ -1,31 +1,43 @@
-import style from './Header.module.css';
-import NavigationItem from './NavigationItem';
 import { Link, NavLink } from 'react-router-dom';
+import { useEffect, useState, useContext } from 'react';
+
+import style from './Header.module.css';
+
+import NavigationItem from './NavigationItem';
+
+import AuthContext from '../../contexts/AuthContext';
 import authService from '../../services/authService';
 
-function Header(props) {
-    let userEmail = '';
+function Header() {
+    let context = useContext(AuthContext);
+    let [userData, setUserData] = useState(context.state.userData)
 
-    if (props.userData.isAuthenticated) {
-        userEmail = props.userData.email;
-    } else {
-        console.log(props.userData);
-    }
+    let userEmail = userData.isAuthenticated ? userData.email : '';
+
+    useEffect(() => {
+        setUserData(context.state.userData);
+        userEmail = userData.isAuthenticated ? userData.email : '';
+    });
 
     const handleLogout = () => {
         authService.logOut();
-        props.appContext.setState({ userData: authService.getData() });
+        context.setState({
+            userData: {
+                isAuthenticated: false,
+                email: '',
+            }
+        });
     }
 
     return (
         <header>
-            {props.userData.isAuthenticated
-                ?(<div className={style.userActionsDivStyle}>
+            {userData.isAuthenticated
+                ? (<div className={style.userActionsDivStyle}>
                     <span className={style.welcomeMessage}>Welcome, {userEmail}</span>
                     <Link className={style.userActionLink} to={`/profile/${userEmail}`}>Profile</Link>
                     <span className={style.userActionLink} onClick={handleLogout.bind(this)} >Logout</span>
                 </div>)
-                :(<div className={style.userActionsDivStyle}>
+                : (<div className={style.userActionsDivStyle}>
                     <Link className={style.guestActionLink} to='/login'>Login</Link>
                     <Link className={style.guestActionLink} to='/register'>Register</Link>
                 </div>)
@@ -43,7 +55,7 @@ function Header(props) {
                     <NavLink activeClassName="active-nav-link" to="/blog">
                         <NavigationItem>Blog</NavigationItem>
                     </NavLink>
-{/* 
+                    {/* 
                     <NavLink activeClassName="active-nav-link" to="/login">
                         <NavigationItem>Login</NavigationItem>
                     </NavLink> */}

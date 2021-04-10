@@ -1,9 +1,10 @@
 import style from './Login.module.css';
-import { Link, NavLink, Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { Component } from 'react';
 import onLoginSubmit from '../../AuthFormHandlers/onLoginSubmit';
 import authService from '../../services/authService';
 import InputError from '../Shared/InputError';
+import AuthContext from '../../contexts/AuthContext';
 
 class Login extends Component {
     constructor(props) {
@@ -23,7 +24,7 @@ class Login extends Component {
             .then(res => {
                 if (res.idToken) {
                     this.setState({ isAuthenticated: true });
-                    this.props.appContext.setState({ userData: authService.getData() });
+                    this.context.setState({ userData: authService.getData() });
                 }
             })
             .catch(error => {
@@ -81,5 +82,7 @@ class Login extends Component {
         )
     }
 }
+
+Login.contextType = AuthContext;
 
 export default Login;

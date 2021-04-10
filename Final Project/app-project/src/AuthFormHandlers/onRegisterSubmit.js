@@ -1,4 +1,5 @@
 import authService from '../services/authService';
+import isEmailValid from '../Validators/isEmailValid';
 
 function onRegisterSubmit(e) {
     e.preventDefault();
@@ -8,17 +9,23 @@ function onRegisterSubmit(e) {
     const password = formData.get('password');
     const repeatPassword = formData.get('repeatPassword');
 
+    if (!email.trim() || !isEmailValid(email)) {
+        return new Promise((resolve, reject) => {
+            reject('The email field must be filled with a valid address.')
+        });
+    } else if (password !== repeatPassword) {
+        return new Promise((resolve, reject) => {
+            reject('Password mismatch.')
+        });
+    } else if (!password.trim()) {
+        return new Promise((resolve, reject) => {
+            reject('The password cannot be an empty string.');
+        });
+    }
+
     return authService.register(email, password)
         .then(data => {
-            console.log(`Registered successfully.`);
-
-            // clearLoadingNotification();
-            // displaySuccessNotification('User registration successful.');
-            // clearInputFields();
-            // authService.login(email, password)
-            //     .then(res => {
-            //         navigate('/home');
-            //     });
+            return(`Registered successfully.`);
         })
         .catch(error => {
             let errorMessage = error.message
@@ -27,16 +34,7 @@ function onRegisterSubmit(e) {
                 .map(word => `${word[0].toUpperCase()}${word.slice(1).toLowerCase()}`)
                 .join(' ');
 
-            return errorMessage;
-
-            // // Format the error messages from Firebase DB
-            // clearLoadingNotification();
-            // let errorMessage = error.message
-            //     .replace(new RegExp(/_/g), ' ')
-            //     .split(' ')
-            //     .map(word => `${word[0].toUpperCase()}${word.slice(1).toLowerCase()}`)
-            //     .join(' ');
-            // displayErrorNotification(`${errorMessage}.`)
+            return Promise.reject(errorMessage);
         });
 }
 

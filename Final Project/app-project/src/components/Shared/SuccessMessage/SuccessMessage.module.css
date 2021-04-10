@@ -1,4 +1,4 @@
-.inputError {
+.successMessage {
     display: inline-block;
     margin: 1em auto 1em auto;
     padding: 0.6em;
@@ -7,5 +7,5 @@
     text-align: center;
     color: #ffffff;
     font-weight: bold;
-    background-color: #ff0000;
+    background-color: rgb(145, 196, 145);
 }

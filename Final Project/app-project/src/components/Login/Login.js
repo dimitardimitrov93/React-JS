@@ -21,8 +21,6 @@ class Login extends Component {
     handleSubmit(e) {
         onLoginSubmit(e)
             .then(res => {
-                console.log(res);
-
                 if (res.idToken) {
                     this.setState({ isAuthenticated: true });
                     this.props.appContext.setState({ userData: authService.getData() });

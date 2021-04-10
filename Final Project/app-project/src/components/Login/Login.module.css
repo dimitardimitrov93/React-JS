@@ -7,8 +7,9 @@
 .main {
     height: 100vh;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
     background-color: white;
     padding: 0 2em 0 2em;
     border: 2px solid #fff;
@@ -23,13 +24,13 @@
     justify-content: center;
     align-items: center;
     height: 28rem;
-    min-width: 35%;
-    margin: 2em auto 2em auto;
+    min-width: 45%;
+    margin: 0 auto 2em auto;
 }
 
 .login-form h1 {
     text-transform: uppercase;
-    margin-bottom: 0.5em;
+    margin: 0 auto 0.5em auto;
     font-weight: normal;
 }
 
@@ -43,8 +44,8 @@
     position: relative;
     background-color: #FFFFFF;
     border-radius: 0.8em;
-    padding: 2em;
-    min-height: 60%;
+    padding: 1em;
+    min-height: 70%;
 }
 
 .login-form form input:nth-child(1),
@@ -54,7 +55,7 @@
 .register-form form input:nth-child(3),
 .register-form form input:nth-child(4) {
     width: 100%;
-    padding: 1em 0.5em 0.7em 4em;
+    padding: 1em 0.5em 1em 4em;
     border: none;
     border-bottom: 1px solid #EFEFEF;
     outline: none;
@@ -94,7 +95,7 @@
    border-radius: 1.3em;
    color: #FFFFFF;
    background-color: #D41872;
-   width: 90%;
+   width: 95%;
 }
 
 .login-btn:hover,

@@ -47,6 +47,7 @@
 }
 
 .register-btn {
+   text-transform: uppercase;
    align-self: center;
    margin-top: 2.5em;
    margin-bottom: 1em;

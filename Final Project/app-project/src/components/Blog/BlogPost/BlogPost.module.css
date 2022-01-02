@@ -1,65 +1,65 @@
 .blogSection {
-    height: 28rem;
-    padding: 0 1em 0 1em;
-    margin: 0.4em 0 0.4em 0;
-    background-color: #cf26675e;
-    border-radius: 0.4em;
-    font-size: 1.4em;
+  height: 28rem;
+  padding: 0 1em 0 1em;
+  margin: 0.4em 0 0.4em 0;
+  background-color: #cf26675e;
+  border-radius: 0.4em;
+  font-size: 1.4em;
 }
 
 .blogSection h3 {
-    text-align: center;
-    text-transform: capitalize;
+  text-align: center;
+  text-transform: capitalize;
 }
 
 .blogImage,
 .blogImageOdd {
-    border-radius: 0.4em;
-    width: 45%;
-    height: 60%;
-    object-fit: cover;
+  border-radius: 0.4em;
+  width: 45%;
+  height: 60%;
+  object-fit: cover;
 }
 
 .blogImage {
-    float: left;
+  float: left;
 }
 
 .blogImageOdd {
-    float: right;
+  float: right;
 }
 
 .blogParagraph,
 .blogParagraphOdd {
-    overflow: hidden;
-    /*
+  overflow: hidden;
+  /*
     white-space: nowrap;
     text-overflow: ellipsis; */
-    text-align: justify;
-    font-size: 0.6em;
-    width: 32em;
-    height: 16.5em;
-    margin: 0 0.5em 0 0.5em;
+  text-align: justify;
+  font-size: 0.6em;
+  width: 50%;
+  height: 50%;
+  margin: 0 0.5em 0 0.5em;
 }
 
 .blogParagraph {
-    float: right;
+  float: right;
 }
 
 .blogParagraphOdd {
-    float: left;
+  float: left;
 }
 
 .blogPostLink,
 .blogPostLinkOdd {
-    margin: auto;
-    padding: 0.5em 0 0 0.4em;
-    font-size: 0.8em;
+  margin: auto;
+  padding: 0.5em 0 0 0.4em;
+  font-size: 0.8em;
 }
 
 .blogPostLink {
-    float: right;
+  float: right;
 }
 
 .blogPostLinkOdd {
-    float: left;
+  float: left;
 }
